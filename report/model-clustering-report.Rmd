@@ -1,0 +1,291 @@
+---
+title: "Modal Clustering"
+output:
+  html_notebook:
+    theme: united
+    toc: yes
+  html_document:
+    df_print: paged
+    toc: yes
+---
+
+
+## Introduction
+This report experiments a few density-based modal clustering methods and evaluate their performance on real datasets. We consider 3 methods: (1) Optimization on kernel density estimation (2) MeanShift algorithm (3) Gaussian mixture model. We use two labeled datasets (olive oil data and wine data) which we know the group labels in the data beforehand. We will test each of the methods on the two datasets and see what clusters we obtain. If the methods work, then the clusters should correspond to each group in the dataset.
+
+
+## Loading Library and Packages
+```{r}
+library(meanShiftR)
+library(mvtnorm)
+library(here)
+
+dir <- here()
+dir.sep <- "/"
+echo <- T
+source(paste(here("function_packages"), "kernel-density-estimation-functions.R", sep = dir.sep))
+source(paste(here("function_packages"), "gaussian-mixture-model-functions.R", sep = dir.sep))
+source(paste(here("function_packages"), "density-optimizing-functions.R", sep = dir.sep))
+```
+
+
+## Importing Data
+
+### Olive Oil dataset
+Olive oil data has 572 observations with 8 variables and 9 distinct groups.
+
+```{r}
+data.filename <- "olive.R"
+data.pathname <- paste(here("data"), data.filename, sep = dir.sep)
+source(data.pathname)
+```
+
+A glimpse of olive oil data. columns represent variables and rows represent observations.
+```{r}
+oil.data <- X # save the matrix as 'oil.data'
+oil.group.id <- group.id # save the id as 'oil.group.id'
+head(X) 
+```
+Corresponding group id for olive oil data.
+```{r}
+oil.group.id
+```
+
+### Wine dataset
+
+Wine data has 178 observations with 13 variables and 3 distinct groups. Details of the dataset can be found at: https://rdrr.io/cran/rattle.data/man/wine.html
+
+```{r}
+data(wine, package='rattle')
+wine.matrix <- data.matrix(wine) # transform dataframe into matrix
+wine.data <- wine.matrix[,-1] # data without group id
+wine.group.id <- wine.matrix[,1] # group id
+```
+
+A glimpse of wine data.
+```{r}
+head(wine.matrix)
+```
+Corresponding group id for wine data
+```{r}
+wine.group.id
+```
+
+## Kernel Density Estimation
+The first approach is by kernel density estimation. The idea is that we first estimate the density function of the datasets by kernel density estimation. By default we use gaussian kernel as our kernel function. After we have the estimated density function, we want to perform optimization on each data point. Basically we start with each data point and shift it uphill until it converges. Then the set of all points that converge to the same mode will correspond to one estimated cluster.  
+
+### **1. Olive Oil**
+
+#### Bandwidth Selection
+We first sphere the dataset and pick the bandwidth by cross-validation 
+```{r}
+sphered.oil <- sphere(oil.data)
+trial.hs <- c(0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0, 1.5, 2.0)
+cv.search.out <- cv.search(sphered.oil, trial.hs)
+h.oil <- cv.search.out$opt.smopar
+```
+
+```{r}
+h.oil
+```
+
+#### Kernel Density Estimator
+
+Fit kernel density estimation on oil data
+```{r}
+density.oil <- make.gaussian.kernel.density.estimate(sphered.oil, h.oil)
+```
+
+#### Numerical Optimization
+
+Perform numerical optimization on each data point
+```{r}
+optim.out.filename <- "/optimizing_result/oil-density-optima.R"
+optim.out.pathname <- paste(here(), optim.out.filename, sep = "\\")
+gradient <- make.kde.gradient(sphered.oil, h.oil)
+optimize.density(sphered.oil, density.oil, optim.out.pathname, gradient = gradient)
+```
+
+Read optimization result. 0 means all points converge.
+```{r}
+optima <- read.optim(sphered.oil, optim.out.pathname)
+```
+
+#### Cluster Local Maxima
+
+```{r}
+clust <- hclust(dist(optima), method = "ward.D2")
+clust$height[1:60]
+```
+These are merge distances based on hierarchical clustering of the local maximas. There is a "jump" between 48 and 49 which suggests that there are 572-48=524 distinct groups, which is apparently not true.
+
+
+### **2. Wine**
+We repeat the procedure above for wine dataset.
+
+#### Bandwidth Selection
+
+```{r}
+sphered.wine <- sphere(wine.data)
+trial.hs <- c(0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0, 1.5, 2.0)
+cv.search.out <- cv.search(sphered.wine, trial.hs)
+h.wine <- cv.search.out$opt.smopar
+```
+
+```{r}
+h.wine
+```
+
+#### Kernel Density Estimator
+
+```{r}
+density.wine <- make.gaussian.kernel.density.estimate(sphered.wine, h.wine)
+```
+
+#### Numerical Optimization
+
+```{r}
+optim.out.filename <- "/optimizing_result/wine-density-optima.R"
+optim.out.pathname <- paste(here(), optim.out.filename, sep = "\\")
+
+
+gradient <- make.kde.gradient(sphered.wine, h.wine)
+optimize.density(sphered.wine, density.wine, optim.out.pathname, gradient = gradient)
+```
+
+
+```{r}
+optima <- read.optim(sphered.wine, optim.out.pathname)
+```
+
+
+#### Cluster Local Maxima
+
+```{r}
+clust <- hclust(dist(optima), method = "ward.D2")
+clust$height
+```
+There is a significant "jump", which suggest there are 178 distinct groups, i.e. every observation forms a group itself.
+
+
+## MeanShift Algorithm
+The second approach is mean-shift algorithm. The idea is to iteratively shift the each point to the weighted average of the density within its neighbourhood until it converges. The weight is determined by the kernel function and the bandwidth h. Here we also use Gaussian kernel by default. The set of all points that converge to the same mode belong to one group.
+
+### **1. Olive Oil**
+
+#### Bandwidth Selection
+Bandwidth is the same as we picked before by cross-validation.
+
+```{r}
+h.oil
+```
+
+#### Apply mean-shift algorithm
+```{r}
+ms <- meanShift(sphered.oil, bandwidth = rep(h.oil, 8), iterations = 1000000)
+```
+
+```{r}
+max(ms$assignment)
+```
+There are 524 groups after applying meanshift algorithm which behaves poorly. The result is exactly the same as the KDE optimization approach.
+
+### **2. Wine**
+
+#### Bandwidth Selection
+Bandwidth is the same as we picked before by cross-validation.
+
+```{r}
+h.wine
+```
+
+#### Apply mean-shift algorithm
+```{r}
+ms <- meanShift(sphered.wine, bandwidth = rep(h.wine, 13), iterations = 1000000)
+```
+
+```{r}
+max(ms$assignment)
+```
+There are 178 groups after applying meanshift algorithm which again it is exactly the same as the KDE optimization approach.
+
+
+## Gaussian Mixture
+The previous two approaches all behave poorly in the way that overestimates the number of modes in each of dataset. This suggests that many of the modes computed in both way do not correspond to the true modes but just some noise from data. One way to reduce such noise can be increasing the bandwidth. This will generally make the estimated density smoother. Before we do that, we first want to verify that given a smooth estimate, are we going to get the right result?
+
+To do that, assume that we know the groups for each dataset beforehand. Then we fit the gaussian mixture model to data using known group labels. After we have the gaussian mixture estimate, we run the optimization again and see the results.
+
+### **1. Olive Oil**
+
+#### Fit Mixture Model
+
+```{r}
+mix.par.oil <- fit.gmm(oil.data, oil.group.id)
+mix.dens.oil <- make.dgmm(mix.par.oil)
+```
+
+#### Numerical Optimization On Mixture Model
+
+```{r}
+optim.out.filename <- "/optimizing_result/olive-mixture-density-optima.R"
+optim.out.pathname <- paste(here(), optim.out.filename, sep = "\\")
+
+control <- control <- list("maxit" = 500, "fnscale" = -1e-20)
+gradient <- make.dgmm.gradient(mix.par.oil)
+
+optimize.density(oil.data, mix.dens.oil, optim.out.pathname, gradient = gradient, control = control)
+```
+
+
+```{r}
+optima <- read.optim(oil.data, optim.out.pathname)
+```
+#### Cluster Local Maxima
+
+```{r}
+clust <- hclust(dist(optima), method = "ward.D2")
+clust$height[550:571]
+```
+There are 8 "large" merge distances at the end, which suggests that there are 9 groups. This is consistent with what we expect.
+
+
+### **2. Wine**
+
+#### Fit mixture model
+
+```{r}
+mix.par.wine <- fit.gmm(wine.data, wine.group.id)
+mix.dens.wine <- make.dgmm(mix.par.wine)
+```
+
+#### Numerical Optimization
+
+```{r}
+optim.out.filename <- "/optimizing_result/wine-mixture-density-optima.R"
+optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+
+control <- list("maxit" = 10000, "fnscale" = -1e-20)
+
+gradient <- make.dgmm.gradient(mix.par.wine)
+optimize.density(wine.data, mix.dens.wine, optim.out.pathname, gradient = gradient, control = control)
+```
+
+
+```{r}
+optima <- read.optim(wine.data, optim.out.pathname)
+```
+#### Cluster Local Maxima
+
+```{r}
+clust <- hclust(dist(optima), method = "ward.D2")
+clust$height
+```
+There is a "jump" at the second last merge which suggest that there are 3 groups. This is consistent with what we expect.
+
+
+
+## Discussion
+So far based on the experiments on olive oil dataset and wine dataset, neither of KDE method or mean shift algorithm performed well on clustering. They both have overwhelmingly many modes which suggest that the fitted models are not smooth. This means we might want to decrease the variance at each point in order to make the KDE smoother. A natural way is to increase the bandwidth h. In this case, variance decreases and bias increases. But we don't care about the bias too much because we don't need the accurate estimate for each point. We only need to know the locations maximas in order to identify the "distinct" modes.  
+So far we have tried manually increasing the bandwidths and it did decrease the number of modes we get (have not yet included in this report). However, we haven't obtained the h such that it produces the consistent result as we expect. One reason is that as h increases, it takes much more iterations and much longer time for optimization to converge. This might be because KDE has small curvature when h is large. Therefore, each iteration takes only a small amount and step which results in a slower convergence rate.   
+On the other hand, the Gaussian mixture models work pretty well for both datasets which should make sense. Because we put the Gaussian density centered at each of the groups in advance, the modes of each Gaussian density should be comparably larger than other regions in the mixture.  
+Also, one interesting fact is that KDE and mean-shift algorithm works out to be exactly the same which might suggest that the two methods are the same implicitly.
