@@ -1,0 +1,291 @@
+---
+title: "More Experiments on Gaussian Mixture Sample"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+  html_notebook:
+    theme: united
+    toc: yes
+---
+## Introduction
+Here we want to do several experiments on Gaussian mixture model. For the sake of simplicity, we just use the oil data for now.  
+(1) First want to fit the gaussian mixture model on oil data based on the known labels. Then we perform optimization on the mixture model and cluster the modes.  
+(2) We will take a sample from the fitted Gaussian mixture model. Then apply KDE method and mean-shift algorithm on this sample and see the results.  
+(3) We want to testify the "fnscale" parameter in the optimization and see whether it affects the optimization result. Based on the documentation,   
+"An overall scaling to be applied to the value of fn and gr during optimization. If negative, turns the problem into a maximization problem. Optimization is performed on fn(par)/fnscale"  
+Therefore, it is rescaling the function by a constant, which should make no difference to the optimizing result in principle.
+
+## Loading Library and Packages
+```{r}
+library(meanShiftR)
+library(mvtnorm)
+library(here)
+```
+
+```{r}
+dir <- here()
+```
+If this doesn't work, can also use getwd() below which gets the current work directory.
+
+```{r}
+dir <- getwd()
+```
+
+```{r}
+dir.sep <- "/"
+echo <- F # controls whether outputs sequences during optimization
+source(paste(dir, 'function_packages', "kernel-density-estimation-functions.R", sep = dir.sep))
+source(paste(dir, 'function_packages', "gaussian-mixture-model-functions.R", sep = dir.sep))
+source(paste(dir, 'function_packages', "density-optimizing-functions.R", sep = dir.sep))
+```
+
+
+## Importing Data
+
+### Olive Oil dataset
+Olive oil data has 572 observations with 8 variables and 9 distinct groups.
+
+```{r}
+data.filename <- "olive.R"
+data.pathname <- paste(dir, 'data', data.filename, sep = dir.sep)
+source(data.pathname)
+```
+
+```{r}
+oil.data <- X # save the matrix as 'oil.data'
+oil.group.id <- group.id # save the id as 'oil.group.id'
+```
+
+### Wine dataset
+
+Wine data has 178 observations with 13 variables and 3 distinct groups. Details of the dataset can be found at: https://rdrr.io/cran/rattle.data/man/wine.html
+
+```{r}
+data(wine, package='rattle')
+wine.matrix <- data.matrix(wine) # transform dataframe into matrix
+wine.data <- wine.matrix[,-1] # data without group id
+wine.group.id <- wine.matrix[,1] # group id
+```
+
+## Fit Mixture Model
+```{r}
+mix.par.oil <- fit.gmm(oil.data, oil.group.id)
+mix.dens.oil <- make.dgmm(mix.par.oil)
+```
+
+```{r}
+mix.par.wine <- fit.gmm(wine.data, wine.group.id)
+mix.dens.wine <- make.dgmm(mix.par.wine)
+```
+
+## Sample From Mixture Model
+```{r}
+set.seed(1234)
+mix.sample.oil <- rgmm(n = 572, mixture.par = mix.par.oil)
+sphered.mix.oil <- sphere(mix.sample.oil$X)
+mix.sample.wine <- rgmm(n = 178, mixture.par = mix.par.wine)
+sphered.mix.wine <- sphere(mix.sample.wine$X)
+```
+
+
+## Kernel Density Estimation
+Now we try to take a sample from the mixture model and fit the KDE on this sample. Then we run the numerical optimization on the KDE to find the local maximums. We also want to test different "fnscale" to see the difference.
+
+### Olive Oil
+
+#### Fit KDE on Mixture Sample
+
+```{r}
+trial.hs <- c(0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0, 1.5, 2.0)
+cv.search.out <- cv.search(sphered.mix.oil, trial.hs)
+h.mix.oil <- cv.search.out$opt.smopar
+```
+
+```{r}
+density.oil.sample <- make.gaussian.kernel.density.estimate(sphered.mix.oil, h.mix.oil)
+```
+
+#### Numerical Optimization
+
+##### *fnscale = -1
+```{r}
+optim.out.filename <- "/optimizing_result/olive-oil-mixture-sample-optima-scale=-1.R"
+optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+
+
+gradient <- make.kde.gradient(X.train = sphered.mix.oil, h = h.mix.oil)
+control <- control <- list("maxit" = 10000, "fnscale" = -1, reltol = 1e-1000)
+
+optimize.density(sphered.mix.oil, density.oil.sample, optim.out.pathname, gradient = gradient, control = control, echo = echo)
+```
+
+```{r}
+optima <- read.optim(sphered.mix.oil, optim.out.pathname)
+```
+
+```{r}
+clust <- hclust(dist(optima), method = "ward.D2")
+clust$height
+```
+There is a "jump" at merge 82.
+
+
+##### *fnscale = -10
+```{r}
+optim.out.filename <- "/optimizing_result/olive-oil-mixture-sample-optima-scale=-10.R"
+optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+
+gradient <- make.kde.gradient(X.train = sphered.mix.oil, h = h.mix.oil)
+control <- control <- list("maxit" = 10000, "fnscale" = -10)
+
+optimize.density(sphered.mix.oil, density.oil.sample, optim.out.pathname, gradient = gradient, control = control, echo = echo)
+```
+
+```{r}
+optima <- read.optim(sphered.mix.oil, optim.out.pathname)
+```
+
+```{r}
+clust <- hclust(dist(optima), method = "ward.D2")
+clust$height
+```
+There is a "jump" at merge 82.
+
+##### *fnscale = -1e-20
+```{r}
+optim.out.filename <- "/optimizing_result/olive-oil-mixture-sample-optima-scale=-1e-20.R"
+optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+
+gradient <- make.kde.gradient(X.train = sphered.mix.oil, h = h.mix.oil)
+control <- list("maxit" = 10000, "fnscale" = -1e-20)
+
+optimize.density(sphered.mix.oil, density.oil.sample, optim.out.pathname, gradient = gradient, control = control, echo = echo)
+```
+
+```{r}
+optima <- read.optim(sphered.mix.oil, optim.out.pathname)
+```
+
+```{r}
+clust <- hclust(dist(optima), method = "ward.D2")
+clust$height
+```
+There is a "jump" at merge 126.
+
+##### *fnscale = -1e-30
+```{r}
+optim.out.filename <- "/optimizing_result/olive-oil-mixture-sample-optima-scale=-1e-30.R"
+optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+
+control <- control <- list("maxit" = 10000, "fnscale" = -1e-30)
+
+optimize.density(sphered.mix.oil, density.oil.sample, optim.out.pathname, gradient = gradient, control = control, echo = echo)
+```
+
+```{r}
+optima <- read.optim(sphered.mix.oil, optim.out.pathname)
+```
+
+```{r}
+clust <- hclust(dist(optima), method = "ward.D2")
+clust$height
+```
+There is a "jump" at merge 114.
+
+### Wine
+
+#### Fit KDE on Mixture Sample
+
+```{r}
+trial.hs <- c(0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0, 1.5, 2.0)
+cv.search.out <- cv.search(sphered.mix.wine, trial.hs)
+h.mix.wine <- cv.search.out$opt.smopar
+```
+
+```{r}
+density.wine.sample <- make.gaussian.kernel.density.estimate(sphered.mix.wine, h.mix.wine)
+```
+
+#### Numerical Optimization
+
+```{r}
+optim.out.filename <- "/optimizing_result/wine-mixture-sample-optima-scale=-1.R"
+optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+
+gradient <- make.kde.gradient(X.train = sphered.mix.wine, h = h.mix.wine)
+control <- control <- list("maxit" = 10000, "fnscale" = -1)
+
+optimize.density(sphered.mix.wine, density.wine.sample, optim.out.pathname, gradient = gradient, control = control, echo = echo)
+```
+
+```{r}
+optima <- read.optim(sphered.mix.wine, optim.out.pathname)
+```
+
+```{r}
+clust <- hclust(dist(optima), method = "ward.D2")
+clust$height
+```
+
+
+## Mean-shift
+Now we try to run mean-shift algorithm on the mixture sample.
+
+### Olive Oil
+```{r}
+ms <- meanShift(sphered.mix.oil, bandwidth = rep(h.mix.oil, 8), iterations = 1000000)
+max(ms$assignment)
+```
+There are 82 groups after applying meanshift algorithm which is consistent with the result of KDE when fnscale = -1, i.e. the original scale.  
+
+How about different bandwidth instead of the one from cross validation? Maybe it was just a bad bandwidth selection. So here we try to adjust the bandwidth h so that it actually gives us 9 groups. By trying out, it shows that we can set h=0.871.
+```{r}
+ms <- meanShift(sphered.mix.oil, bandwidth = rep(0.871, 8), iterations = 1000000)
+max(ms$assignment)
+```
+Let's see the corresponding assignment:
+```{r}
+c(ms$assignment)
+```
+Here are the true labels:
+```{r}
+mix.sample.oil$group.id
+```
+Apparently the corresponding assignment does not reference to the true labels.
+
+### Wine
+```{r}
+ms <- meanShift(sphered.mix.wine, bandwidth = rep(h.mix.wine, 13), iterations = 1000000)
+max(ms$assignment)
+```
+There are 176 groups after applying meanshift algorithm which is not consistent with the result of KDE when fnscale = -1.  
+
+When bandwidth = 1.35, it produces 3 distinct groups.
+```{r}
+ms <- meanShift(sphered.mix.wine, bandwidth = rep(1.35, 13), iterations = 1000000)
+max(ms$assignment)
+```
+Let's see the corresponding assignment:
+```{r}
+c(ms$assignment)
+```
+Here are the true labels:
+```{r}
+mix.sample.wine$group.id
+```
+Again the corresponding assignment does not reference to the true labels. Most of the observations belong to 1 group.
+
+
+## Discussion
+First, the result from optimizing the Gaussian Mixture Model shows that there are 9 "distinct" modes which is equal to the true number of groups.  
+Second, by sampling from this mixture model, our KDE estimate or mean-shift algorithm should also give us 9 "distinct" modes if it behaves well. However, this is not the case and it still overestimates the number of modes. Even by increasing the bandwidth to match the true number of modes, it does not produce the same modes.  
+Third, by changing the "fnscale" parameter, we got different jumps at the merge distances. This suggests that "fnscale" does change the optimizing result on KDE. Since "fnscale" only rescales the function by a constant, the converging locations should be the same. One explanation might be because there are lots of little "wiggles" in the function that is within the tolerance for convergence. Then by rescaling the function, the wiggles gets "amplified" such that these turn to be the local maximums. Hence, it changes the converging locations for some points. Here is another explanation from https://stat.ethz.ch/pipermail/r-help/2008-March/157832.html:  
+"The gist is that optim is happiest when the function values 
+f(beta) are not too large and not too small, and ditto for df/dbeta. You 
+may e.g. get convergence issues if your data or your "covariates" are 
+Molar concentrations when the actual values are on the order of 
+microMolar.  "Covariates" in quotes because this is not linear, but the 
+gradient df/dbeta plays the part in the local linearization. So you get 
+the opportunity to rescale function values and parameters."  
+If I understand it correctly, since, in each iteration, the algorithm updates the current point based on the gradient and hessian matrix, this means the function values have an effect on the value updates. Therefore, by rescaling the function, we can have different updated values and therefore, different converging sequences. Since there are many local maximums in the function, even starting at the same point, it can converge to different locations with different function scales.
