@@ -12,7 +12,7 @@
 
 
 
-<title>More Experiments on Gaussian Mixture Model</title>
+<title>More Experiments on Gaussian Mixture Sample</title>
 
 <script>/*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
 !function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error("jQuery requires a window with a document");return b(a)}:b(a)}("undefined"!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l="1.11.3",m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCase()};m.fn=m.prototype={jquery:l,constructor:m,selector:"",length:0,toArray:function(){return d.call(this)},get:function(a){return null!=a?0>a?this[a+this.length]:this[a]:d.call(this)},pushStack:function(a){var b=m.merge(this.constructor(),a);return b.prevObject=this,b.context=this.context,b},each:function(a,b){return m.each(this,a,b)},map:function(a){return this.pushStack(m.map(this,function(b,c){return a.call(b,c,b)}))},slice:function(){return this.pushStack(d.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(a){var b=this.length,c=+a+(0>a?b:0);return this.pushStack(c>=0&&b>c?[this[c]]:[])},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:c.sort,splice:c.splice},m.extend=m.fn.extend=function(){var a,b,c,d,e,f,g=arguments[0]||{},h=1,i=arguments.length,j=!1;for("boolean"==typeof g&&(j=g,g=arguments[h]||{},h++),"object"==typeof g||m.isFunction(g)||(g={}),h===i&&(g=this,h--);i>h;h++)if(null!=(e=arguments[h]))for(d in e)a=g[d],c=e[d],g!==c&&(j&&c&&(m.isPlainObject(c)||(b=m.isArray(c)))?(b?(b=!1,f=a&&m.isArray(a)?a:[]):f=a&&m.isPlainObject(a)?a:{},g[d]=m.extend(j,f,c)):void 0!==c&&(g[d]=c));return g},m.extend({expando:"jQuery"+(l+Math.random()).replace(/\D/g,""),isReady:!0,error:function(a){throw new Error(a)},noop:function(){},isFunction:function(a){return"function"===m.type(a)},isArray:Array.isArray||function(a){return"array"===m.type(a)},isWindow:function(a){return null!=a&&a==a.window},isNumeric:function(a){return!m.isArray(a)&&a-parseFloat(a)+1>=0},isEmptyObject:function(a){var b;for(b in a)return!1;return!0},isPlainObject:function(a){var b;if(!a||"object"!==m.type(a)||a.nodeType||m.isWindow(a))return!1;try{if(a.constructor&&!j.call(a,"constructor")&&!j.call(a.constructor.prototype,"isPrototypeOf"))return!1}catch(c){return!1}if(k.ownLast)for(b in a)return j.call(a,b);for(b in a);return void 0===b||j.call(a,b)},type:function(a){return null==a?a+"":"object"==typeof a||"function"==typeof a?h[i.call(a)]||"object":typeof a},globalEval:function(b){b&&m.trim(b)&&(a.execScript||function(b){a.eval.call(a,b)})(b)},camelCase:function(a){return a.replace(o,"ms-").replace(p,q)},nodeName:function(a,b){return a.nodeName&&a.nodeName.toLowerCase()===b.toLowerCase()},each:function(a,b,c){var d,e=0,f=a.length,g=r(a);if(c){if(g){for(;f>e;e++)if(d=b.apply(a[e],c),d===!1)break}else for(e in a)if(d=b.apply(a[e],c),d===!1)break}else if(g){for(;f>e;e++)if(d=b.call(a[e],e,a[e]),d===!1)break}else for(e in a)if(d=b.call(a[e],e,a[e]),d===!1)break;return a},trim:function(a){return null==a?"":(a+"").replace(n,"")},makeArray:function(a,b){var c=b||[];return null!=a&&(r(Object(a))?m.merge(c,"string"==typeof a?[a]:a):f.call(c,a)),c},inArray:function(a,b,c){var d;if(b){if(g)return g.call(b,a,c);for(d=b.length,c=c?0>c?Math.max(0,d+c):c:0;d>c;c++)if(c in b&&b[c]===a)return c}return-1},merge:function(a,b){var c=+b.length,d=0,e=a.length;while(c>d)a[e++]=b[d++];if(c!==c)while(void 0!==b[d])a[e++]=b[d++];return a.length=e,a},grep:function(a,b,c){for(var d,e=[],f=0,g=a.length,h=!c;g>f;f++)d=!b(a[f],f),d!==h&&e.push(a[f]);return e},map:function(a,b,c){var d,f=0,g=a.length,h=r(a),i=[];if(h)for(;g>f;f++)d=b(a[f],f,c),null!=d&&i.push(d);else for(f in a)d=b(a[f],f,c),null!=d&&i.push(d);return e.apply([],i)},guid:1,proxy:function(a,b){var c,e,f;return"string"==typeof b&&(f=a[b],b=a,a=f),m.isFunction(a)?(c=d.call(arguments,2),e=function(){return a.apply(b||this,c.concat(d.call(arguments)))},e.guid=a.guid=a.guid||m.guid++,e):void 0},now:function(){return+new Date},support:k}),m.each("Boolean Number String Function Array Date RegExp Object Error".split(" "),function(a,b){h["[object "+b+"]"]=b.toLowerCase()});function r(a){var b="length"in a&&a.length,c=m.type(a);return"function"===c||m.isWindow(a)?!1:1===a.nodeType&&b?!0:"array"===c||0===b||"number"==typeof b&&b>0&&b-1 in a}var s=function(a){var b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u="sizzle"+1*new Date,v=a.document,w=0,x=0,y=ha(),z=ha(),A=ha(),B=function(a,b){return a===b&&(l=!0),0},C=1<<31,D={}.hasOwnProperty,E=[],F=E.pop,G=E.push,H=E.push,I=E.slice,J=function(a,b){for(var c=0,d=a.length;d>c;c++)if(a[c]===b)return c;return-1},K="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",L="[\\x20\\t\\r\\n\\f]",M="(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",N=M.replace("w","w#"),O="\\["+L+"*("+M+")(?:"+L+"*([*^$|!~]?=)"+L+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+N+"))|)"+L+"*\\]",P=":("+M+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+O+")*)|.*)\\)|)",Q=new RegExp(L+"+","g"),R=new RegExp("^"+L+"+|((?:^|[^\\\\])(?:\\\\.)*)"+L+"+$","g"),S=new RegExp("^"+L+"*,"+L+"*"),T=new RegExp("^"+L+"*([>+~]|"+L+")"+L+"*"),U=new RegExp("="+L+"*([^\\]'\"]*?)"+L+"*\\]","g"),V=new RegExp(P),W=new RegExp("^"+N+"$"),X={ID:new RegExp("^#("+M+")"),CLASS:new RegExp("^\\.("+M+")"),TAG:new RegExp("^("+M.replace("w","w*")+")"),ATTR:new RegExp("^"+O),PSEUDO:new RegExp("^"+P),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+L+"*(even|odd|(([+-]|)(\\d*)n|)"+L+"*(?:([+-]|)"+L+"*(\\d+)|))"+L+"*\\)|)","i"),bool:new RegExp("^(?:"+K+")$","i"),needsContext:new RegExp("^"+L+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+L+"*((?:-\\d)?\\d*)"+L+"*\\)|)(?=[^-]|$)","i")},Y=/^(?:input|select|textarea|button)$/i,Z=/^h\d$/i,$=/^[^{]+\{\s*\[native \w/,_=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,aa=/[+~]/,ba=/'|\\/g,ca=new RegExp("\\\\([\\da-f]{1,6}"+L+"?|("+L+")|.)","ig"),da=function(a,b,c){var d="0x"+b-65536;return d!==d||c?b:0>d?String.fromCharCode(d+65536):String.fromCharCode(d>>10|55296,1023&d|56320)},ea=function(){m()};try{H.apply(E=I.call(v.childNodes),v.childNodes),E[v.childNodes.length].nodeType}catch(fa){H={apply:E.length?function(a,b){G.apply(a,I.call(b))}:function(a,b){var c=a.length,d=0;while(a[c++]=b[d++]);a.length=c-1}}}function ga(a,b,d,e){var f,h,j,k,l,o,r,s,w,x;if((b?b.ownerDocument||b:v)!==n&&m(b),b=b||n,d=d||[],k=b.nodeType,"string"!=typeof a||!a||1!==k&&9!==k&&11!==k)return d;if(!e&&p){if(11!==k&&(f=_.exec(a)))if(j=f[1]){if(9===k){if(h=b.getElementById(j),!h||!h.parentNode)return d;if(h.id===j)return d.push(h),d}else if(b.ownerDocument&&(h=b.ownerDocument.getElementById(j))&&t(b,h)&&h.id===j)return d.push(h),d}else{if(f[2])return H.apply(d,b.getElementsByTagName(a)),d;if((j=f[3])&&c.getElementsByClassName)return H.apply(d,b.getElementsByClassName(j)),d}if(c.qsa&&(!q||!q.test(a))){if(s=r=u,w=b,x=1!==k&&a,1===k&&"object"!==b.nodeName.toLowerCase()){o=g(a),(r=b.getAttribute("id"))?s=r.replace(ba,"\\$&"):b.setAttribute("id",s),s="[id='"+s+"'] ",l=o.length;while(l--)o[l]=s+ra(o[l]);w=aa.test(a)&&pa(b.parentNode)||b,x=o.join(",")}if(x)try{return H.apply(d,w.querySelectorAll(x)),d}catch(y){}finally{r||b.removeAttribute("id")}}}return i(a.replace(R,"$1"),b,d,e)}function ha(){var a=[];function b(c,e){return a.push(c+" ")>d.cacheLength&&delete b[a.shift()],b[c+" "]=e}return b}function ia(a){return a[u]=!0,a}function ja(a){var b=n.createElement("div");try{return!!a(b)}catch(c){return!1}finally{b.parentNode&&b.parentNode.removeChild(b),b=null}}function ka(a,b){var c=a.split("|"),e=a.length;while(e--)d.attrHandle[c[e]]=b}function la(a,b){var c=b&&a,d=c&&1===a.nodeType&&1===b.nodeType&&(~b.sourceIndex||C)-(~a.sourceIndex||C);if(d)return d;if(c)while(c=c.nextSibling)if(c===b)return-1;return a?1:-1}function ma(a){return function(b){var c=b.nodeName.toLowerCase();return"input"===c&&b.type===a}}function na(a){return function(b){var c=b.nodeName.toLowerCase();return("input"===c||"button"===c)&&b.type===a}}function oa(a){return ia(function(b){return b=+b,ia(function(c,d){var e,f=a([],c.length,b),g=f.length;while(g--)c[e=f[g]]&&(c[e]=!(d[e]=c[e]))})})}function pa(a){return a&&"undefined"!=typeof a.getElementsByTagName&&a}c=ga.support={},f=ga.isXML=function(a){var b=a&&(a.ownerDocument||a).documentElement;return b?"HTML"!==b.nodeName:!1},m=ga.setDocument=function(a){var b,e,g=a?a.ownerDocument||a:v;return g!==n&&9===g.nodeType&&g.documentElement?(n=g,o=g.documentElement,e=g.defaultView,e&&e!==e.top&&(e.addEventListener?e.addEventListener("unload",ea,!1):e.attachEvent&&e.attachEvent("onunload",ea)),p=!f(g),c.attributes=ja(function(a){return a.className="i",!a.getAttribute("className")}),c.getElementsByTagName=ja(function(a){return a.appendChild(g.createComment("")),!a.getElementsByTagName("*").length}),c.getElementsByClassName=$.test(g.getElementsByClassName),c.getById=ja(function(a){return o.appendChild(a).id=u,!g.getElementsByName||!g.getElementsByName(u).length}),c.getById?(d.find.ID=function(a,b){if("undefined"!=typeof b.getElementById&&p){var c=b.getElementById(a);return c&&c.parentNode?[c]:[]}},d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){return a.getAttribute("id")===b}}):(delete d.find.ID,d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){var c="undefined"!=typeof a.getAttributeNode&&a.getAttributeNode("id");return c&&c.value===b}}),d.find.TAG=c.getElementsByTagName?function(a,b){return"undefined"!=typeof b.getElementsByTagName?b.getElementsByTagName(a):c.qsa?b.querySelectorAll(a):void 0}:function(a,b){var c,d=[],e=0,f=b.getElementsByTagName(a);if("*"===a){while(c=f[e++])1===c.nodeType&&d.push(c);return d}return f},d.find.CLASS=c.getElementsByClassName&&function(a,b){return p?b.getElementsByClassName(a):void 0},r=[],q=[],(c.qsa=$.test(g.querySelectorAll))&&(ja(function(a){o.appendChild(a).innerHTML="<a id='"+u+"'></a><select id='"+u+"-\f]' msallowcapture=''><option selected=''></option></select>",a.querySelectorAll("[msallowcapture^='']").length&&q.push("[*^$]="+L+"*(?:''|\"\")"),a.querySelectorAll("[selected]").length||q.push("\\["+L+"*(?:value|"+K+")"),a.querySelectorAll("[id~="+u+"-]").length||q.push("~="),a.querySelectorAll(":checked").length||q.push(":checked"),a.querySelectorAll("a#"+u+"+*").length||q.push(".#.+[+~]")}),ja(function(a){var b=g.createElement("input");b.setAttribute("type","hidden"),a.appendChild(b).setAttribute("name","D"),a.querySelectorAll("[name=d]").length&&q.push("name"+L+"*[*^$|!~]?="),a.querySelectorAll(":enabled").length||q.push(":enabled",":disabled"),a.querySelectorAll("*,:x"),q.push(",.*:")})),(c.matchesSelector=$.test(s=o.matches||o.webkitMatchesSelector||o.mozMatchesSelector||o.oMatchesSelector||o.msMatchesSelector))&&ja(function(a){c.disconnectedMatch=s.call(a,"div"),s.call(a,"[s!='']:x"),r.push("!=",P)}),q=q.length&&new RegExp(q.join("|")),r=r.length&&new RegExp(r.join("|")),b=$.test(o.compareDocumentPosition),t=b||$.test(o.contains)?function(a,b){var c=9===a.nodeType?a.documentElement:a,d=b&&b.parentNode;return a===d||!(!d||1!==d.nodeType||!(c.contains?c.contains(d):a.compareDocumentPosition&&16&a.compareDocumentPosition(d)))}:function(a,b){if(b)while(b=b.parentNode)if(b===a)return!0;return!1},B=b?function(a,b){if(a===b)return l=!0,0;var d=!a.compareDocumentPosition-!b.compareDocumentPosition;return d?d:(d=(a.ownerDocument||a)===(b.ownerDocument||b)?a.compareDocumentPosition(b):1,1&d||!c.sortDetached&&b.compareDocumentPosition(a)===d?a===g||a.ownerDocument===v&&t(v,a)?-1:b===g||b.ownerDocument===v&&t(v,b)?1:k?J(k,a)-J(k,b):0:4&d?-1:1)}:function(a,b){if(a===b)return l=!0,0;var c,d=0,e=a.parentNode,f=b.parentNode,h=[a],i=[b];if(!e||!f)return a===g?-1:b===g?1:e?-1:f?1:k?J(k,a)-J(k,b):0;if(e===f)return la(a,b);c=a;while(c=c.parentNode)h.unshift(c);c=b;while(c=c.parentNode)i.unshift(c);while(h[d]===i[d])d++;return d?la(h[d],i[d]):h[d]===v?-1:i[d]===v?1:0},g):n},ga.matches=function(a,b){return ga(a,null,null,b)},ga.matchesSelector=function(a,b){if((a.ownerDocument||a)!==n&&m(a),b=b.replace(U,"='$1']"),!(!c.matchesSelector||!p||r&&r.test(b)||q&&q.test(b)))try{var d=s.call(a,b);if(d||c.disconnectedMatch||a.document&&11!==a.document.nodeType)return d}catch(e){}return ga(b,n,null,[a]).length>0},ga.contains=function(a,b){return(a.ownerDocument||a)!==n&&m(a),t(a,b)},ga.attr=function(a,b){(a.ownerDocument||a)!==n&&m(a);var e=d.attrHandle[b.toLowerCase()],f=e&&D.call(d.attrHandle,b.toLowerCase())?e(a,b,!p):void 0;return void 0!==f?f:c.attributes||!p?a.getAttribute(b):(f=a.getAttributeNode(b))&&f.specified?f.value:null},ga.error=function(a){throw new Error("Syntax error, unrecognized expression: "+a)},ga.uniqueSort=function(a){var b,d=[],e=0,f=0;if(l=!c.detectDuplicates,k=!c.sortStable&&a.slice(0),a.sort(B),l){while(b=a[f++])b===a[f]&&(e=d.push(f));while(e--)a.splice(d[e],1)}return k=null,a},e=ga.getText=function(a){var b,c="",d=0,f=a.nodeType;if(f){if(1===f||9===f||11===f){if("string"==typeof a.textContent)return a.textContent;for(a=a.firstChild;a;a=a.nextSibling)c+=e(a)}else if(3===f||4===f)return a.nodeValue}else while(b=a[d++])c+=e(b);return c},d=ga.selectors={cacheLength:50,createPseudo:ia,match:X,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(a){return a[1]=a[1].replace(ca,da),a[3]=(a[3]||a[4]||a[5]||"").replace(ca,da),"~="===a[2]&&(a[3]=" "+a[3]+" "),a.slice(0,4)},CHILD:function(a){return a[1]=a[1].toLowerCase(),"nth"===a[1].slice(0,3)?(a[3]||ga.error(a[0]),a[4]=+(a[4]?a[5]+(a[6]||1):2*("even"===a[3]||"odd"===a[3])),a[5]=+(a[7]+a[8]||"odd"===a[3])):a[3]&&ga.error(a[0]),a},PSEUDO:function(a){var b,c=!a[6]&&a[2];return X.CHILD.test(a[0])?null:(a[3]?a[2]=a[4]||a[5]||"":c&&V.test(c)&&(b=g(c,!0))&&(b=c.indexOf(")",c.length-b)-c.length)&&(a[0]=a[0].slice(0,b),a[2]=c.slice(0,b)),a.slice(0,3))}},filter:{TAG:function(a){var b=a.replace(ca,da).toLowerCase();return"*"===a?function(){return!0}:function(a){return a.nodeName&&a.nodeName.toLowerCase()===b}},CLASS:function(a){var b=y[a+" "];return b||(b=new RegExp("(^|"+L+")"+a+"("+L+"|$)"))&&y(a,function(a){return b.test("string"==typeof a.className&&a.className||"undefined"!=typeof a.getAttribute&&a.getAttribute("class")||"")})},ATTR:function(a,b,c){return function(d){var e=ga.attr(d,a);return null==e?"!="===b:b?(e+="","="===b?e===c:"!="===b?e!==c:"^="===b?c&&0===e.indexOf(c):"*="===b?c&&e.indexOf(c)>-1:"$="===b?c&&e.slice(-c.length)===c:"~="===b?(" "+e.replace(Q," ")+" ").indexOf(c)>-1:"|="===b?e===c||e.slice(0,c.length+1)===c+"-":!1):!0}},CHILD:function(a,b,c,d,e){var f="nth"!==a.slice(0,3),g="last"!==a.slice(-4),h="of-type"===b;return 1===d&&0===e?function(a){return!!a.parentNode}:function(b,c,i){var j,k,l,m,n,o,p=f!==g?"nextSibling":"previousSibling",q=b.parentNode,r=h&&b.nodeName.toLowerCase(),s=!i&&!h;if(q){if(f){while(p){l=b;while(l=l[p])if(h?l.nodeName.toLowerCase()===r:1===l.nodeType)return!1;o=p="only"===a&&!o&&"nextSibling"}return!0}if(o=[g?q.firstChild:q.lastChild],g&&s){k=q[u]||(q[u]={}),j=k[a]||[],n=j[0]===w&&j[1],m=j[0]===w&&j[2],l=n&&q.childNodes[n];while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if(1===l.nodeType&&++m&&l===b){k[a]=[w,n,m];break}}else if(s&&(j=(b[u]||(b[u]={}))[a])&&j[0]===w)m=j[1];else while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if((h?l.nodeName.toLowerCase()===r:1===l.nodeType)&&++m&&(s&&((l[u]||(l[u]={}))[a]=[w,m]),l===b))break;return m-=e,m===d||m%d===0&&m/d>=0}}},PSEUDO:function(a,b){var c,e=d.pseudos[a]||d.setFilters[a.toLowerCase()]||ga.error("unsupported pseudo: "+a);return e[u]?e(b):e.length>1?(c=[a,a,"",b],d.setFilters.hasOwnProperty(a.toLowerCase())?ia(function(a,c){var d,f=e(a,b),g=f.length;while(g--)d=J(a,f[g]),a[d]=!(c[d]=f[g])}):function(a){return e(a,0,c)}):e}},pseudos:{not:ia(function(a){var b=[],c=[],d=h(a.replace(R,"$1"));return d[u]?ia(function(a,b,c,e){var f,g=d(a,null,e,[]),h=a.length;while(h--)(f=g[h])&&(a[h]=!(b[h]=f))}):function(a,e,f){return b[0]=a,d(b,null,f,c),b[0]=null,!c.pop()}}),has:ia(function(a){return function(b){return ga(a,b).length>0}}),contains:ia(function(a){return a=a.replace(ca,da),function(b){return(b.textContent||b.innerText||e(b)).indexOf(a)>-1}}),lang:ia(function(a){return W.test(a||"")||ga.error("unsupported lang: "+a),a=a.replace(ca,da).toLowerCase(),function(b){var c;do if(c=p?b.lang:b.getAttribute("xml:lang")||b.getAttribute("lang"))return c=c.toLowerCase(),c===a||0===c.indexOf(a+"-");while((b=b.parentNode)&&1===b.nodeType);return!1}}),target:function(b){var c=a.location&&a.location.hash;return c&&c.slice(1)===b.id},root:function(a){return a===o},focus:function(a){return a===n.activeElement&&(!n.hasFocus||n.hasFocus())&&!!(a.type||a.href||~a.tabIndex)},enabled:function(a){return a.disabled===!1},disabled:function(a){return a.disabled===!0},checked:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&!!a.checked||"option"===b&&!!a.selected},selected:function(a){return a.parentNode&&a.parentNode.selectedIndex,a.selected===!0},empty:function(a){for(a=a.firstChild;a;a=a.nextSibling)if(a.nodeType<6)return!1;return!0},parent:function(a){return!d.pseudos.empty(a)},header:function(a){return Z.test(a.nodeName)},input:function(a){return Y.test(a.nodeName)},button:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&"button"===a.type||"button"===b},text:function(a){var b;return"input"===a.nodeName.toLowerCase()&&"text"===a.type&&(null==(b=a.getAttribute("type"))||"text"===b.toLowerCase())},first:oa(function(){return[0]}),last:oa(function(a,b){return[b-1]}),eq:oa(function(a,b,c){return[0>c?c+b:c]}),even:oa(function(a,b){for(var c=0;b>c;c+=2)a.push(c);return a}),odd:oa(function(a,b){for(var c=1;b>c;c+=2)a.push(c);return a}),lt:oa(function(a,b,c){for(var d=0>c?c+b:c;--d>=0;)a.push(d);return a}),gt:oa(function(a,b,c){for(var d=0>c?c+b:c;++d<b;)a.push(d);return a})}},d.pseudos.nth=d.pseudos.eq;for(b in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})d.pseudos[b]=ma(b);for(b in{submit:!0,reset:!0})d.pseudos[b]=na(b);function qa(){}qa.prototype=d.filters=d.pseudos,d.setFilters=new qa,g=ga.tokenize=function(a,b){var c,e,f,g,h,i,j,k=z[a+" "];if(k)return b?0:k.slice(0);h=a,i=[],j=d.preFilter;while(h){(!c||(e=S.exec(h)))&&(e&&(h=h.slice(e[0].length)||h),i.push(f=[])),c=!1,(e=T.exec(h))&&(c=e.shift(),f.push({value:c,type:e[0].replace(R," ")}),h=h.slice(c.length));for(g in d.filter)!(e=X[g].exec(h))||j[g]&&!(e=j[g](e))||(c=e.shift(),f.push({value:c,type:g,matches:e}),h=h.slice(c.length));if(!c)break}return b?h.length:h?ga.error(a):z(a,i).slice(0)};function ra(a){for(var b=0,c=a.length,d="";c>b;b++)d+=a[b].value;return d}function sa(a,b,c){var d=b.dir,e=c&&"parentNode"===d,f=x++;return b.first?function(b,c,f){while(b=b[d])if(1===b.nodeType||e)return a(b,c,f)}:function(b,c,g){var h,i,j=[w,f];if(g){while(b=b[d])if((1===b.nodeType||e)&&a(b,c,g))return!0}else while(b=b[d])if(1===b.nodeType||e){if(i=b[u]||(b[u]={}),(h=i[d])&&h[0]===w&&h[1]===f)return j[2]=h[2];if(i[d]=j,j[2]=a(b,c,g))return!0}}}function ta(a){return a.length>1?function(b,c,d){var e=a.length;while(e--)if(!a[e](b,c,d))return!1;return!0}:a[0]}function ua(a,b,c){for(var d=0,e=b.length;e>d;d++)ga(a,b[d],c);return c}function va(a,b,c,d,e){for(var f,g=[],h=0,i=a.length,j=null!=b;i>h;h++)(f=a[h])&&(!c||c(f,d,e))&&(g.push(f),j&&b.push(h));return g}function wa(a,b,c,d,e,f){return d&&!d[u]&&(d=wa(d)),e&&!e[u]&&(e=wa(e,f)),ia(function(f,g,h,i){var j,k,l,m=[],n=[],o=g.length,p=f||ua(b||"*",h.nodeType?[h]:h,[]),q=!a||!f&&b?p:va(p,m,a,h,i),r=c?e||(f?a:o||d)?[]:g:q;if(c&&c(q,r,h,i),d){j=va(r,n),d(j,[],h,i),k=j.length;while(k--)(l=j[k])&&(r[n[k]]=!(q[n[k]]=l))}if(f){if(e||a){if(e){j=[],k=r.length;while(k--)(l=r[k])&&j.push(q[k]=l);e(null,r=[],j,i)}k=r.length;while(k--)(l=r[k])&&(j=e?J(f,l):m[k])>-1&&(f[j]=!(g[j]=l))}}else r=va(r===g?r.splice(o,r.length):r),e?e(null,g,r,i):H.apply(g,r)})}function xa(a){for(var b,c,e,f=a.length,g=d.relative[a[0].type],h=g||d.relative[" "],i=g?1:0,k=sa(function(a){return a===b},h,!0),l=sa(function(a){return J(b,a)>-1},h,!0),m=[function(a,c,d){var e=!g&&(d||c!==j)||((b=c).nodeType?k(a,c,d):l(a,c,d));return b=null,e}];f>i;i++)if(c=d.relative[a[i].type])m=[sa(ta(m),c)];else{if(c=d.filter[a[i].type].apply(null,a[i].matches),c[u]){for(e=++i;f>e;e++)if(d.relative[a[e].type])break;return wa(i>1&&ta(m),i>1&&ra(a.slice(0,i-1).concat({value:" "===a[i-2].type?"*":""})).replace(R,"$1"),c,e>i&&xa(a.slice(i,e)),f>e&&xa(a=a.slice(e)),f>e&&ra(a))}m.push(c)}return ta(m)}function ya(a,b){var c=b.length>0,e=a.length>0,f=function(f,g,h,i,k){var l,m,o,p=0,q="0",r=f&&[],s=[],t=j,u=f||e&&d.find.TAG("*",k),v=w+=null==t?1:Math.random()||.1,x=u.length;for(k&&(j=g!==n&&g);q!==x&&null!=(l=u[q]);q++){if(e&&l){m=0;while(o=a[m++])if(o(l,g,h)){i.push(l);break}k&&(w=v)}c&&((l=!o&&l)&&p--,f&&r.push(l))}if(p+=q,c&&q!==p){m=0;while(o=b[m++])o(r,s,g,h);if(f){if(p>0)while(q--)r[q]||s[q]||(s[q]=F.call(i));s=va(s)}H.apply(i,s),k&&!f&&s.length>0&&p+b.length>1&&ga.uniqueSort(i)}return k&&(w=v,j=t),r};return c?ia(f):f}return h=ga.compile=function(a,b){var c,d=[],e=[],f=A[a+" "];if(!f){b||(b=g(a)),c=b.length;while(c--)f=xa(b[c]),f[u]?d.push(f):e.push(f);f=A(a,ya(e,d)),f.selector=a}return f},i=ga.select=function(a,b,e,f){var i,j,k,l,m,n="function"==typeof a&&a,o=!f&&g(a=n.selector||a);if(e=e||[],1===o.length){if(j=o[0]=o[0].slice(0),j.length>2&&"ID"===(k=j[0]).type&&c.getById&&9===b.nodeType&&p&&d.relative[j[1].type]){if(b=(d.find.ID(k.matches[0].replace(ca,da),b)||[])[0],!b)return e;n&&(b=b.parentNode),a=a.slice(j.shift().value.length)}i=X.needsContext.test(a)?0:j.length;while(i--){if(k=j[i],d.relative[l=k.type])break;if((m=d.find[l])&&(f=m(k.matches[0].replace(ca,da),aa.test(j[0].type)&&pa(b.parentNode)||b))){if(j.splice(i,1),a=f.length&&ra(j),!a)return H.apply(e,f),e;break}}}return(n||h(a,o))(f,b,!p,e,aa.test(a)&&pa(b.parentNode)||b),e},c.sortStable=u.split("").sort(B).join("")===u,c.detectDuplicates=!!l,m(),c.sortDetached=ja(function(a){return 1&a.compareDocumentPosition(n.createElement("div"))}),ja(function(a){return a.innerHTML="<a href='#'></a>","#"===a.firstChild.getAttribute("href")})||ka("type|href|height|width",function(a,b,c){return c?void 0:a.getAttribute(b,"type"===b.toLowerCase()?1:2)}),c.attributes&&ja(function(a){return a.innerHTML="<input/>",a.firstChild.setAttribute("value",""),""===a.firstChild.getAttribute("value")})||ka("value",function(a,b,c){return c||"input"!==a.nodeName.toLowerCase()?void 0:a.defaultValue}),ja(function(a){return null==a.getAttribute("disabled")})||ka(K,function(a,b,c){var d;return c?void 0:a[b]===!0?b.toLowerCase():(d=a.getAttributeNode(b))&&d.specified?d.value:null}),ga}(a);m.find=s,m.expr=s.selectors,m.expr[":"]=m.expr.pseudos,m.unique=s.uniqueSort,m.text=s.getText,m.isXMLDoc=s.isXML,m.contains=s.contains;var t=m.expr.match.needsContext,u=/^<(\w+)\s*\/?>(?:<\/\1>|)$/,v=/^.[^:#\[\.,]*$/;function w(a,b,c){if(m.isFunction(b))return m.grep(a,function(a,d){return!!b.call(a,d,a)!==c});if(b.nodeType)return m.grep(a,function(a){return a===b!==c});if("string"==typeof b){if(v.test(b))return m.filter(b,a,c);b=m.filter(b,a)}return m.grep(a,function(a){return m.inArray(a,b)>=0!==c})}m.filter=function(a,b,c){var d=b[0];return c&&(a=":not("+a+")"),1===b.length&&1===d.nodeType?m.find.matchesSelector(d,a)?[d]:[]:m.find.matches(a,m.grep(b,function(a){return 1===a.nodeType}))},m.fn.extend({find:function(a){var b,c=[],d=this,e=d.length;if("string"!=typeof a)return this.pushStack(m(a).filter(function(){for(b=0;e>b;b++)if(m.contains(d[b],this))return!0}));for(b=0;e>b;b++)m.find(a,d[b],c);return c=this.pushStack(e>1?m.unique(c):c),c.selector=this.selector?this.selector+" "+a:a,c},filter:function(a){return this.pushStack(w(this,a||[],!1))},not:function(a){return this.pushStack(w(this,a||[],!0))},is:function(a){return!!w(this,"string"==typeof a&&t.test(a)?m(a):a||[],!1).length}});var x,y=a.document,z=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,A=m.fn.init=function(a,b){var c,d;if(!a)return this;if("string"==typeof a){if(c="<"===a.charAt(0)&&">"===a.charAt(a.length-1)&&a.length>=3?[null,a,null]:z.exec(a),!c||!c[1]&&b)return!b||b.jquery?(b||x).find(a):this.constructor(b).find(a);if(c[1]){if(b=b instanceof m?b[0]:b,m.merge(this,m.parseHTML(c[1],b&&b.nodeType?b.ownerDocument||b:y,!0)),u.test(c[1])&&m.isPlainObject(b))for(c in b)m.isFunction(this[c])?this[c](b[c]):this.attr(c,b[c]);return this}if(d=y.getElementById(c[2]),d&&d.parentNode){if(d.id!==c[2])return x.find(a);this.length=1,this[0]=d}return this.context=y,this.selector=a,this}return a.nodeType?(this.context=this[0]=a,this.length=1,this):m.isFunction(a)?"undefined"!=typeof x.ready?x.ready(a):a(m):(void 0!==a.selector&&(this.selector=a.selector,this.context=a.context),m.makeArray(a,this))};A.prototype=m.fn,x=m(y);var B=/^(?:parents|prev(?:Until|All))/,C={children:!0,contents:!0,next:!0,prev:!0};m.extend({dir:function(a,b,c){var d=[],e=a[b];while(e&&9!==e.nodeType&&(void 0===c||1!==e.nodeType||!m(e).is(c)))1===e.nodeType&&d.push(e),e=e[b];return d},sibling:function(a,b){for(var c=[];a;a=a.nextSibling)1===a.nodeType&&a!==b&&c.push(a);return c}}),m.fn.extend({has:function(a){var b,c=m(a,this),d=c.length;return this.filter(function(){for(b=0;d>b;b++)if(m.contains(this,c[b]))return!0})},closest:function(a,b){for(var c,d=0,e=this.length,f=[],g=t.test(a)||"string"!=typeof a?m(a,b||this.context):0;e>d;d++)for(c=this[d];c&&c!==b;c=c.parentNode)if(c.nodeType<11&&(g?g.index(c)>-1:1===c.nodeType&&m.find.matchesSelector(c,a))){f.push(c);break}return this.pushStack(f.length>1?m.unique(f):f)},index:function(a){return a?"string"==typeof a?m.inArray(this[0],m(a)):m.inArray(a.jquery?a[0]:a,this):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(a,b){return this.pushStack(m.unique(m.merge(this.get(),m(a,b))))},addBack:function(a){return this.add(null==a?this.prevObject:this.prevObject.filter(a))}});function D(a,b){do a=a[b];while(a&&1!==a.nodeType);return a}m.each({parent:function(a){var b=a.parentNode;return b&&11!==b.nodeType?b:null},parents:function(a){return m.dir(a,"parentNode")},parentsUntil:function(a,b,c){return m.dir(a,"parentNode",c)},next:function(a){return D(a,"nextSibling")},prev:function(a){return D(a,"previousSibling")},nextAll:function(a){return m.dir(a,"nextSibling")},prevAll:function(a){return m.dir(a,"previousSibling")},nextUntil:function(a,b,c){return m.dir(a,"nextSibling",c)},prevUntil:function(a,b,c){return m.dir(a,"previousSibling",c)},siblings:function(a){return m.sibling((a.parentNode||{}).firstChild,a)},children:function(a){return m.sibling(a.firstChild)},contents:function(a){return m.nodeName(a,"iframe")?a.contentDocument||a.contentWindow.document:m.merge([],a.childNodes)}},function(a,b){m.fn[a]=function(c,d){var e=m.map(this,b,c);return"Until"!==a.slice(-5)&&(d=c),d&&"string"==typeof d&&(e=m.filter(d,e)),this.length>1&&(C[a]||(e=m.unique(e)),B.test(a)&&(e=e.reverse())),this.pushStack(e)}});var E=/\S+/g,F={};function G(a){var b=F[a]={};return m.each(a.match(E)||[],function(a,c){b[c]=!0}),b}m.Callbacks=function(a){a="string"==typeof a?F[a]||G(a):m.extend({},a);var b,c,d,e,f,g,h=[],i=!a.once&&[],j=function(l){for(c=a.memory&&l,d=!0,f=g||0,g=0,e=h.length,b=!0;h&&e>f;f++)if(h[f].apply(l[0],l[1])===!1&&a.stopOnFalse){c=!1;break}b=!1,h&&(i?i.length&&j(i.shift()):c?h=[]:k.disable())},k={add:function(){if(h){var d=h.length;!function f(b){m.each(b,function(b,c){var d=m.type(c);"function"===d?a.unique&&k.has(c)||h.push(c):c&&c.length&&"string"!==d&&f(c)})}(arguments),b?e=h.length:c&&(g=d,j(c))}return this},remove:function(){return h&&m.each(arguments,function(a,c){var d;while((d=m.inArray(c,h,d))>-1)h.splice(d,1),b&&(e>=d&&e--,f>=d&&f--)}),this},has:function(a){return a?m.inArray(a,h)>-1:!(!h||!h.length)},empty:function(){return h=[],e=0,this},disable:function(){return h=i=c=void 0,this},disabled:function(){return!h},lock:function(){return i=void 0,c||k.disable(),this},locked:function(){return!i},fireWith:function(a,c){return!h||d&&!i||(c=c||[],c=[a,c.slice?c.slice():c],b?i.push(c):j(c)),this},fire:function(){return k.fireWith(this,arguments),this},fired:function(){return!!d}};return k},m.extend({Deferred:function(a){var b=[["resolve","done",m.Callbacks("once memory"),"resolved"],["reject","fail",m.Callbacks("once memory"),"rejected"],["notify","progress",m.Callbacks("memory")]],c="pending",d={state:function(){return c},always:function(){return e.done(arguments).fail(arguments),this},then:function(){var a=arguments;return m.Deferred(function(c){m.each(b,function(b,f){var g=m.isFunction(a[b])&&a[b];e[f[1]](function(){var a=g&&g.apply(this,arguments);a&&m.isFunction(a.promise)?a.promise().done(c.resolve).fail(c.reject).progress(c.notify):c[f[0]+"With"](this===d?c.promise():this,g?[a]:arguments)})}),a=null}).promise()},promise:function(a){return null!=a?m.extend(a,d):d}},e={};return d.pipe=d.then,m.each(b,function(a,f){var g=f[2],h=f[3];d[f[1]]=g.add,h&&g.add(function(){c=h},b[1^a][2].disable,b[2][2].lock),e[f[0]]=function(){return e[f[0]+"With"](this===e?d:this,arguments),this},e[f[0]+"With"]=g.fireWith}),d.promise(e),a&&a.call(e,e),e},when:function(a){var b=0,c=d.call(arguments),e=c.length,f=1!==e||a&&m.isFunction(a.promise)?e:0,g=1===f?a:m.Deferred(),h=function(a,b,c){return function(e){b[a]=this,c[a]=arguments.length>1?d.call(arguments):e,c===i?g.notifyWith(b,c):--f||g.resolveWith(b,c)}},i,j,k;if(e>1)for(i=new Array(e),j=new Array(e),k=new Array(e);e>b;b++)c[b]&&m.isFunction(c[b].promise)?c[b].promise().done(h(b,k,c)).fail(g.reject).progress(h(b,j,i)):--f;return f||g.resolveWith(k,c),g.promise()}});var H;m.fn.ready=function(a){return m.ready.promise().done(a),this},m.extend({isReady:!1,readyWait:1,holdReady:function(a){a?m.readyWait++:m.ready(!0)},ready:function(a){if(a===!0?!--m.readyWait:!m.isReady){if(!y.body)return setTimeout(m.ready);m.isReady=!0,a!==!0&&--m.readyWait>0||(H.resolveWith(y,[m]),m.fn.triggerHandler&&(m(y).triggerHandler("ready"),m(y).off("ready")))}}});function I(){y.addEventListener?(y.removeEventListener("DOMContentLoaded",J,!1),a.removeEventListener("load",J,!1)):(y.detachEvent("onreadystatechange",J),a.detachEvent("onload",J))}function J(){(y.addEventListener||"load"===event.type||"complete"===y.readyState)&&(I(),m.ready())}m.ready.promise=function(b){if(!H)if(H=m.Deferred(),"complete"===y.readyState)setTimeout(m.ready);else if(y.addEventListener)y.addEventListener("DOMContentLoaded",J,!1),a.addEventListener("load",J,!1);else{y.attachEvent("onreadystatechange",J),a.attachEvent("onload",J);var c=!1;try{c=null==a.frameElement&&y.documentElement}catch(d){}c&&c.doScroll&&!function e(){if(!m.isReady){try{c.doScroll("left")}catch(a){return setTimeout(e,50)}I(),m.ready()}}()}return H.promise(b)};var K="undefined",L;for(L in m(k))break;k.ownLast="0"!==L,k.inlineBlockNeedsLayout=!1,m(function(){var a,b,c,d;c=y.getElementsByTagName("body")[0],c&&c.style&&(b=y.createElement("div"),d=y.createElement("div"),d.style.cssText="position:absolute;border:0;width:0;height:0;top:0;left:-9999px",c.appendChild(d).appendChild(b),typeof b.style.zoom!==K&&(b.style.cssText="display:inline;margin:0;border:0;padding:1px;width:1px;zoom:1",k.inlineBlockNeedsLayout=a=3===b.offsetWidth,a&&(c.style.zoom=1)),c.removeChild(d))}),function(){var a=y.createElement("div");if(null==k.deleteExpando){k.deleteExpando=!0;try{delete a.test}catch(b){k.deleteExpando=!1}}a=null}(),m.acceptData=function(a){var b=m.noData[(a.nodeName+" ").toLowerCase()],c=+a.nodeType||1;return 1!==c&&9!==c?!1:!b||b!==!0&&a.getAttribute("classid")===b};var M=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,N=/([A-Z])/g;function O(a,b,c){if(void 0===c&&1===a.nodeType){var d="data-"+b.replace(N,"-$1").toLowerCase();if(c=a.getAttribute(d),"string"==typeof c){try{c="true"===c?!0:"false"===c?!1:"null"===c?null:+c+""===c?+c:M.test(c)?m.parseJSON(c):c}catch(e){}m.data(a,b,c)}else c=void 0}return c}function P(a){var b;for(b in a)if(("data"!==b||!m.isEmptyObject(a[b]))&&"toJSON"!==b)return!1;
@@ -1632,7 +1632,7 @@ summary {
 
 
 
-<h1 class="title toc-ignore">More Experiments on Gaussian Mixture Model</h1>
+<h1 class="title toc-ignore">More Experiments on Gaussian Mixture Sample</h1>
 
 </div>
 
@@ -1642,17 +1642,18 @@ summary {
 <li><a href="#loading-library-and-packages">Loading Library and Packages</a></li>
 <li><a href="#importing-data">Importing Data</a><ul>
 <li><a href="#olive-oil-dataset">Olive Oil dataset</a></li>
+<li><a href="#wine-dataset">Wine dataset</a></li>
 </ul></li>
-<li><a href="#gaussian-mixture-model">Gaussian Mixture Model</a><ul>
-<li><a href="#fitting-model">Fitting Model</a></li>
-<li><a href="#numerical-optimization">Numerical Optimization</a></li>
-</ul></li>
+<li><a href="#fit-mixture-model">Fit Mixture Model</a></li>
+<li><a href="#sample-from-mixture-model">Sample From Mixture Model</a></li>
 <li><a href="#kernel-density-estimation">Kernel Density Estimation</a><ul>
-<li><a href="#sampling-from-mixture-model">Sampling from Mixture Model</a></li>
-<li><a href="#fit-kde-on-mixture-sample">Fit KDE on Mixture Sample</a></li>
-<li><a href="#numerical-optimization-1">Numerical Optimization</a></li>
+<li><a href="#olive-oil">Olive Oil</a></li>
+<li><a href="#wine">Wine</a></li>
 </ul></li>
-<li><a href="#mean-shift">Mean-shift</a></li>
+<li><a href="#mean-shift">Mean-shift</a><ul>
+<li><a href="#olive-oil-1">Olive Oil</a></li>
+<li><a href="#wine-1">Wine</a></li>
+</ul></li>
 <li><a href="#discussion">Discussion</a></li>
 </ul>
 </div>
@@ -1672,13 +1673,15 @@ Therefore, it is rescaling the function by a constant, which should make no diff
 library(mvtnorm)
 library(here)</code></pre>
 <pre><code>## Warning: package &#39;here&#39; was built under R version 3.6.2</code></pre>
-<pre><code>## here() starts at C:/Users/huans/OneDrive/UW/Research/Modal-clustering/report</code></pre>
-<pre class="r"><code>dir &lt;- here()
-dir.sep &lt;- &quot;/&quot;
-echo &lt;- T
-source(paste(here(&quot;function_packages&quot;), &quot;kernel-density-estimation-functions.R&quot;, sep = dir.sep))
-source(paste(here(&quot;function_packages&quot;), &quot;gaussian-mixture-model-functions.R&quot;, sep = dir.sep))
-source(paste(here(&quot;function_packages&quot;), &quot;density-optimizing-functions.R&quot;, sep = dir.sep))</code></pre>
+<pre><code>## here() starts at C:/Users/huans/OneDrive/UW/Research/modal-clustering</code></pre>
+<pre class="r"><code>dir &lt;- here()</code></pre>
+<p>If this doesn’t work, can also use getwd() below which gets the current work directory.</p>
+<pre class="r"><code>dir &lt;- getwd()</code></pre>
+<pre class="r"><code>dir.sep &lt;- &quot;/&quot;
+echo &lt;- F # controls whether outputs sequences during optimization
+source(paste(dir, &#39;function_packages&#39;, &quot;kernel-density-estimation-functions.R&quot;, sep = dir.sep))
+source(paste(dir, &#39;function_packages&#39;, &quot;gaussian-mixture-model-functions.R&quot;, sep = dir.sep))
+source(paste(dir, &#39;function_packages&#39;, &quot;density-optimizing-functions.R&quot;, sep = dir.sep))</code></pre>
 </div>
 <div id="importing-data" class="section level2">
 <h2>Importing Data</h2>
@@ -1686,364 +1689,721 @@ source(paste(here(&quot;function_packages&quot;), &quot;density-optimizing-funct
 <h3>Olive Oil dataset</h3>
 <p>Olive oil data has 572 observations with 8 variables and 9 distinct groups.</p>
 <pre class="r"><code>data.filename &lt;- &quot;olive.R&quot;
-data.pathname &lt;- paste(here(&quot;data&quot;), data.filename, sep = dir.sep)
+data.pathname &lt;- paste(dir, &#39;data&#39;, data.filename, sep = dir.sep)
 source(data.pathname)</code></pre>
 <pre class="r"><code>oil.data &lt;- X # save the matrix as &#39;oil.data&#39;
 oil.group.id &lt;- group.id # save the id as &#39;oil.group.id&#39;</code></pre>
 </div>
+<div id="wine-dataset" class="section level3">
+<h3>Wine dataset</h3>
+<p>Wine data has 178 observations with 13 variables and 3 distinct groups. Details of the dataset can be found at: <a href="https://rdrr.io/cran/rattle.data/man/wine.html" class="uri">https://rdrr.io/cran/rattle.data/man/wine.html</a></p>
+<pre class="r"><code>data(wine, package=&#39;rattle&#39;)
+wine.matrix &lt;- data.matrix(wine) # transform dataframe into matrix
+wine.data &lt;- wine.matrix[,-1] # data without group id
+wine.group.id &lt;- wine.matrix[,1] # group id</code></pre>
 </div>
-<div id="gaussian-mixture-model" class="section level2">
-<h2>Gaussian Mixture Model</h2>
-<div id="fitting-model" class="section level3">
-<h3>Fitting Model</h3>
+</div>
+<div id="fit-mixture-model" class="section level2">
+<h2>Fit Mixture Model</h2>
 <pre class="r"><code>mix.par.oil &lt;- fit.gmm(oil.data, oil.group.id)
 mix.dens.oil &lt;- make.dgmm(mix.par.oil)</code></pre>
+<pre class="r"><code>mix.par.wine &lt;- fit.gmm(wine.data, wine.group.id)
+mix.dens.wine &lt;- make.dgmm(mix.par.wine)</code></pre>
 </div>
-<div id="numerical-optimization" class="section level3">
-<h3>Numerical Optimization</h3>
-<pre class="r"><code>optim.out.filename &lt;- &quot;/optimizing_result/oil-mixture-density-optima.R&quot;
-optim.out.pathname &lt;- paste(dir, optim.out.filename, sep = &quot;\\&quot;)
-
-control &lt;- list(&quot;maxit&quot; = 10000, &quot;fnscale&quot; = -1e-20)
-
-gradient &lt;- make.dgmm.gradient(mix.par.oil)
-optimize.density(oil.data, mix.dens.oil, optim.out.pathname, gradient = gradient, control = control, echo = F)</code></pre>
-<pre class="r"><code>optima &lt;- read.optim(oil.data, optim.out.pathname)</code></pre>
-<pre><code>## [1] 0</code></pre>
-<div id="cluster-local-maxima" class="section level4">
-<h4>Cluster Local Maxima</h4>
-<pre class="r"><code>clust &lt;- hclust(dist(optima), method = &quot;ward.D2&quot;)
-clust$height</code></pre>
-<pre><code>##   [1] 1.629697e-09 2.574372e-09 3.474083e-09 3.590061e-09 3.931336e-09
-##   [6] 4.630671e-09 5.732945e-09 5.834931e-09 8.897995e-09 1.154833e-08
-##  [11] 1.182505e-08 1.350933e-08 1.441237e-08 1.509117e-08 1.638869e-08
-##  [16] 1.673593e-08 1.721334e-08 2.156843e-08 2.364043e-08 2.618326e-08
-##  [21] 2.901082e-08 3.257595e-08 3.282729e-08 3.326623e-08 3.399362e-08
-##  [26] 3.403715e-08 3.453657e-08 3.919458e-08 3.977317e-08 4.023372e-08
-##  [31] 4.037425e-08 4.323517e-08 4.372357e-08 4.760966e-08 5.301925e-08
-##  [36] 5.347341e-08 5.442774e-08 6.144492e-08 6.578691e-08 6.929571e-08
-##  [41] 7.413237e-08 7.719676e-08 8.164083e-08 8.883140e-08 9.608635e-08
-##  [46] 9.624438e-08 9.684489e-08 9.967895e-08 1.053982e-07 1.102555e-07
-##  [51] 1.124387e-07 1.186156e-07 1.205785e-07 1.208309e-07 1.235350e-07
-##  [56] 1.319945e-07 1.377311e-07 1.396765e-07 1.459968e-07 1.558553e-07
-##  [61] 1.566362e-07 1.652029e-07 1.655347e-07 1.718406e-07 1.733042e-07
-##  [66] 1.768554e-07 1.789434e-07 1.883495e-07 1.886075e-07 1.924352e-07
-##  [71] 1.951254e-07 1.974215e-07 2.007221e-07 2.045877e-07 2.065121e-07
-##  [76] 2.091254e-07 2.120835e-07 2.310328e-07 2.368953e-07 2.468451e-07
-##  [81] 2.525993e-07 2.714259e-07 2.715612e-07 2.906148e-07 2.912329e-07
-##  [86] 3.002426e-07 3.165301e-07 3.286274e-07 3.286318e-07 3.306124e-07
-##  [91] 3.311876e-07 3.322900e-07 3.361017e-07 3.544659e-07 3.555076e-07
-##  [96] 3.607448e-07 4.017697e-07 4.320052e-07 4.398994e-07 4.530433e-07
-## [101] 4.702117e-07 4.705720e-07 4.885108e-07 5.055058e-07 5.305271e-07
-## [106] 5.710785e-07 5.786659e-07 5.995331e-07 6.340005e-07 6.595512e-07
-## [111] 6.809429e-07 7.027675e-07 7.075031e-07 7.325098e-07 7.362482e-07
-## [116] 7.516270e-07 7.640053e-07 8.262191e-07 8.283004e-07 8.934899e-07
-## [121] 9.202711e-07 9.246316e-07 9.624341e-07 1.010915e-06 1.012063e-06
-## [126] 1.029598e-06 1.040481e-06 1.056417e-06 1.109449e-06 1.130125e-06
-## [131] 1.141198e-06 1.172283e-06 1.211684e-06 1.214717e-06 1.239388e-06
-## [136] 1.260247e-06 1.282003e-06 1.350450e-06 1.403401e-06 1.404176e-06
-## [141] 1.434785e-06 1.434954e-06 1.568442e-06 1.590115e-06 1.625732e-06
-## [146] 1.626609e-06 1.690022e-06 1.756147e-06 1.877155e-06 1.925132e-06
-## [151] 1.967047e-06 1.976659e-06 2.041267e-06 2.052091e-06 2.069785e-06
-## [156] 2.087260e-06 2.100075e-06 2.120604e-06 2.134817e-06 2.170301e-06
-## [161] 2.172708e-06 2.227150e-06 2.268543e-06 2.318251e-06 2.321939e-06
-## [166] 2.412983e-06 2.419860e-06 2.429999e-06 2.640788e-06 2.906641e-06
-## [171] 2.932661e-06 3.011324e-06 3.097140e-06 3.445630e-06 3.468356e-06
-## [176] 3.481916e-06 3.596023e-06 3.867307e-06 4.091182e-06 4.149880e-06
-## [181] 4.170846e-06 4.315139e-06 4.393085e-06 4.978664e-06 4.984483e-06
-## [186] 5.008118e-06 5.306961e-06 5.504259e-06 5.595402e-06 5.835729e-06
-## [191] 5.984837e-06 6.258351e-06 6.324269e-06 6.366728e-06 6.369983e-06
-## [196] 6.524590e-06 6.648340e-06 6.788754e-06 7.060411e-06 7.290645e-06
-## [201] 7.351812e-06 7.362320e-06 7.487851e-06 7.562552e-06 7.801235e-06
-## [206] 8.117426e-06 8.483165e-06 8.683947e-06 8.858465e-06 8.863487e-06
-## [211] 8.901173e-06 9.487667e-06 1.000166e-05 1.002977e-05 1.040317e-05
-## [216] 1.059450e-05 1.076898e-05 1.088643e-05 1.137955e-05 1.180681e-05
-## [221] 1.209921e-05 1.357946e-05 1.374547e-05 1.383523e-05 1.433319e-05
-## [226] 1.434019e-05 1.537934e-05 1.550586e-05 1.622623e-05 1.632293e-05
-## [231] 1.643460e-05 1.662892e-05 1.848094e-05 2.000817e-05 2.042250e-05
-## [236] 2.054110e-05 2.079528e-05 2.098293e-05 2.104017e-05 2.104328e-05
-## [241] 2.106838e-05 2.248876e-05 2.307752e-05 2.466710e-05 2.584101e-05
-## [246] 2.692378e-05 2.726178e-05 2.737989e-05 2.778737e-05 2.804326e-05
-## [251] 2.899297e-05 2.916072e-05 3.006632e-05 3.055342e-05 3.056195e-05
-## [256] 3.267954e-05 3.369338e-05 3.386425e-05 3.440641e-05 3.478160e-05
-## [261] 3.534649e-05 3.546697e-05 3.751604e-05 3.755993e-05 3.783200e-05
-## [266] 4.082549e-05 4.198668e-05 4.309864e-05 4.377439e-05 4.567215e-05
-## [271] 4.581606e-05 4.692848e-05 4.757553e-05 4.794625e-05 4.808418e-05
-## [276] 5.025599e-05 5.062691e-05 5.113711e-05 5.152945e-05 5.164576e-05
-## [281] 5.257065e-05 5.412203e-05 5.614830e-05 5.742263e-05 5.993294e-05
-## [286] 6.020677e-05 6.031400e-05 6.145533e-05 6.195483e-05 6.375448e-05
-## [291] 6.407913e-05 6.480379e-05 6.605200e-05 6.775048e-05 6.918143e-05
-## [296] 7.268425e-05 7.415047e-05 7.507813e-05 7.925652e-05 8.241081e-05
-## [301] 8.288321e-05 8.315649e-05 8.550901e-05 8.874388e-05 9.205613e-05
-## [306] 9.574520e-05 9.705111e-05 9.953981e-05 1.012234e-04 1.035838e-04
-## [311] 1.045394e-04 1.177815e-04 1.178399e-04 1.193275e-04 1.225478e-04
-## [316] 1.266556e-04 1.276206e-04 1.291851e-04 1.310775e-04 1.326988e-04
-## [321] 1.367327e-04 1.399507e-04 1.400602e-04 1.413297e-04 1.415844e-04
-## [326] 1.465669e-04 1.496961e-04 1.519530e-04 1.522498e-04 1.622002e-04
-## [331] 1.656752e-04 1.718470e-04 1.877004e-04 1.894826e-04 2.049856e-04
-## [336] 2.079931e-04 2.085861e-04 2.157587e-04 2.225488e-04 2.289112e-04
-## [341] 2.318327e-04 2.330510e-04 2.377946e-04 2.403597e-04 2.487099e-04
-## [346] 2.489795e-04 2.511709e-04 2.540560e-04 2.571305e-04 2.601599e-04
-## [351] 2.692924e-04 2.694819e-04 2.716645e-04 2.727173e-04 2.864385e-04
-## [356] 2.916122e-04 2.916299e-04 2.978485e-04 3.019751e-04 3.101358e-04
-## [361] 3.112534e-04 3.115941e-04 3.126244e-04 3.204683e-04 3.207543e-04
-## [366] 3.227874e-04 3.334355e-04 3.494805e-04 3.567046e-04 3.727986e-04
-## [371] 3.842030e-04 4.169240e-04 4.235294e-04 4.379322e-04 4.401873e-04
-## [376] 4.482214e-04 4.619842e-04 4.683249e-04 4.721721e-04 5.326070e-04
-## [381] 5.497586e-04 5.523467e-04 5.586321e-04 5.605769e-04 5.690552e-04
-## [386] 5.699797e-04 6.029168e-04 6.072272e-04 6.150953e-04 6.190724e-04
-## [391] 6.366350e-04 6.496927e-04 6.772455e-04 7.122757e-04 7.326813e-04
-## [396] 7.655729e-04 7.687046e-04 7.778308e-04 8.114595e-04 8.330850e-04
-## [401] 8.412043e-04 8.526449e-04 8.606564e-04 9.373310e-04 9.845947e-04
-## [406] 9.881542e-04 1.001390e-03 1.010620e-03 1.046352e-03 1.047420e-03
-## [411] 1.074028e-03 1.088127e-03 1.095795e-03 1.110593e-03 1.195609e-03
-## [416] 1.199337e-03 1.248736e-03 1.265794e-03 1.328577e-03 1.356466e-03
-## [421] 1.356604e-03 1.365785e-03 1.460351e-03 1.480220e-03 1.495029e-03
-## [426] 1.499894e-03 1.539474e-03 1.561424e-03 1.603861e-03 1.610574e-03
-## [431] 1.636638e-03 1.643062e-03 1.653961e-03 1.659752e-03 1.722220e-03
-## [436] 1.728207e-03 1.741532e-03 1.790609e-03 1.920270e-03 1.952422e-03
-## [441] 1.992685e-03 2.004193e-03 2.033423e-03 2.046927e-03 2.109362e-03
-## [446] 2.117915e-03 2.186271e-03 2.228416e-03 2.248156e-03 2.280453e-03
-## [451] 2.356029e-03 2.483269e-03 2.498505e-03 2.556756e-03 2.777391e-03
-## [456] 2.839278e-03 2.865894e-03 2.876500e-03 2.937732e-03 3.126455e-03
-## [461] 3.154936e-03 3.175739e-03 3.239055e-03 3.284982e-03 3.622539e-03
-## [466] 3.636264e-03 3.696044e-03 3.783609e-03 3.822743e-03 3.931755e-03
-## [471] 4.005078e-03 4.006925e-03 4.087097e-03 4.109304e-03 4.493251e-03
-## [476] 4.641378e-03 4.758161e-03 4.775548e-03 4.793577e-03 4.888878e-03
-## [481] 5.119088e-03 5.135350e-03 5.658277e-03 5.713863e-03 5.733604e-03
-## [486] 6.185957e-03 6.386089e-03 6.608598e-03 6.680239e-03 6.713207e-03
-## [491] 6.772379e-03 6.799709e-03 6.922774e-03 7.003570e-03 7.033573e-03
-## [496] 7.064570e-03 7.109361e-03 7.421790e-03 7.442917e-03 7.457845e-03
-## [501] 7.567785e-03 7.752950e-03 7.843480e-03 8.785950e-03 9.039747e-03
-## [506] 9.741545e-03 1.000088e-02 1.030198e-02 1.043861e-02 1.057889e-02
-## [511] 1.103903e-02 1.108124e-02 1.119056e-02 1.138389e-02 1.160008e-02
-## [516] 1.199242e-02 1.240739e-02 1.279141e-02 1.304689e-02 1.419025e-02
-## [521] 1.419764e-02 1.506302e-02 1.535434e-02 1.686337e-02 1.719455e-02
-## [526] 1.820308e-02 1.858094e-02 1.876664e-02 2.024159e-02 2.076206e-02
-## [531] 2.092990e-02 2.113908e-02 2.171646e-02 2.215585e-02 2.701809e-02
-## [536] 2.721452e-02 2.815692e-02 2.871947e-02 2.968935e-02 3.321514e-02
-## [541] 3.547396e-02 3.710313e-02 4.088541e-02 4.325413e-02 4.594707e-02
-## [546] 5.073122e-02 5.333647e-02 5.819974e-02 5.888591e-02 6.528022e-02
-## [551] 6.914708e-02 7.929915e-02 8.078505e-02 8.753959e-02 8.804821e-02
-## [556] 1.264876e-01 1.502428e-01 1.685760e-01 1.779009e-01 2.017049e-01
-## [561] 2.203475e-01 3.023959e-01 4.445230e-01 4.097720e+02 8.885007e+02
-## [566] 1.691501e+03 2.319766e+03 2.618570e+03 4.097408e+03 6.447281e+03
-## [571] 1.297412e+04</code></pre>
-<p>There are 8 “large” merge distances at the end, which suggests that there are 9 groups. This is consistent with what we expect.</p>
-</div>
-</div>
+<div id="sample-from-mixture-model" class="section level2">
+<h2>Sample From Mixture Model</h2>
+<pre class="r"><code>set.seed(1234)
+mix.sample.oil &lt;- rgmm(n = 572, mixture.par = mix.par.oil)
+sphered.mix.oil &lt;- sphere(mix.sample.oil$X)
+mix.sample.wine &lt;- rgmm(n = 178, mixture.par = mix.par.wine)
+sphered.mix.wine &lt;- sphere(mix.sample.wine$X)</code></pre>
 </div>
 <div id="kernel-density-estimation" class="section level2">
 <h2>Kernel Density Estimation</h2>
 <p>Now we try to take a sample from the mixture model and fit the KDE on this sample. Then we run the numerical optimization on the KDE to find the local maximums. We also want to test different “fnscale” to see the difference.</p>
-<div id="sampling-from-mixture-model" class="section level3">
-<h3>Sampling from Mixture Model</h3>
-<pre class="r"><code>set.seed(1234)
-mix.sample.oil &lt;- rgmm(n = 200, mixture.par = mix.par.oil)</code></pre>
-</div>
-<div id="fit-kde-on-mixture-sample" class="section level3">
-<h3>Fit KDE on Mixture Sample</h3>
-<pre class="r"><code>sphered.mix.oil &lt;- sphere(mix.sample.oil$X)
-trial.hs &lt;- c(0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0, 1.5, 2.0)
+<div id="olive-oil" class="section level3">
+<h3>Olive Oil</h3>
+<div id="fit-kde-on-mixture-sample" class="section level4">
+<h4>Fit KDE on Mixture Sample</h4>
+<pre class="r"><code>trial.hs &lt;- c(0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0, 1.5, 2.0)
 cv.search.out &lt;- cv.search(sphered.mix.oil, trial.hs)
 h.mix.oil &lt;- cv.search.out$opt.smopar</code></pre>
-</div>
-<div id="numerical-optimization-1" class="section level3">
-<h3>Numerical Optimization</h3>
 <pre class="r"><code>density.oil.sample &lt;- make.gaussian.kernel.density.estimate(sphered.mix.oil, h.mix.oil)</code></pre>
-<div id="fnscale--1" class="section level4">
-<h4>*fnscale = -1</h4>
-<pre class="r"><code>optim.out.filename &lt;- &quot;/optimizing_result/olive-kde-oil-mixture-sample-optima-scale=-1.R&quot;
-optim.out.pathname &lt;- paste(here(), optim.out.filename, sep = &quot;\\&quot;)
-
-control &lt;- control &lt;- list(&quot;maxit&quot; = 10000, &quot;fnscale&quot; = -1)
-
-optimize.density(sphered.mix.oil, density.oil.sample, optim.out.pathname, gradient = gradient, control = control, echo = F)</code></pre>
-<pre class="r"><code>optima &lt;- read.optim(sphered.mix.oil, optim.out.pathname)</code></pre>
-<pre><code>## [1] 0</code></pre>
-<pre class="r"><code>clust &lt;- hclust(dist(optima), method = &quot;ward.D2&quot;)
-clust$height</code></pre>
-<pre><code>##   [1]  0.5481537  0.6553981  0.6800646  0.6877726  0.7133231  0.7340518
-##   [7]  0.7429905  0.7469308  0.7598037  0.7925336  0.8129522  0.8339169
-##  [13]  0.8500815  0.8500890  0.8502993  0.8524226  0.8535755  0.8668678
-##  [19]  0.8688202  0.8713444  0.8772479  0.8812114  0.8860950  0.9263608
-##  [25]  0.9533600  0.9848732  1.0062398  1.0130862  1.0373778  1.0452451
-##  [31]  1.0552184  1.0680206  1.1079972  1.1137155  1.1141949  1.1230786
-##  [37]  1.1363173  1.1448636  1.1550312  1.1663077  1.1718760  1.1802591
-##  [43]  1.1809555  1.1833755  1.1950507  1.1956913  1.2016498  1.2134436
-##  [49]  1.2188299  1.2289711  1.2850469  1.3145676  1.3532744  1.3742304
-##  [55]  1.3799496  1.3858952  1.3943921  1.4117336  1.4121232  1.4125994
-##  [61]  1.4149338  1.4363126  1.4671710  1.4779210  1.4894366  1.4933609
-##  [67]  1.4937131  1.5008793  1.5052453  1.5064114  1.5340023  1.5340170
-##  [73]  1.5488239  1.5517080  1.5548600  1.5556827  1.5571668  1.5581028
-##  [79]  1.5691962  1.5777234  1.5865039  1.6130598  1.6321379  1.6358166
-##  [85]  1.6469997  1.6670934  1.6688146  1.6767551  1.6908491  1.7062065
-##  [91]  1.7114672  1.7128522  1.7797008  1.7888583  1.8100301  1.8114380
-##  [97]  1.8243079  1.8355772  1.8513482  1.8869966  1.8874842  1.9014127
-## [103]  1.9143154  1.9220724  1.9285730  1.9329838  1.9509431  1.9683697
-## [109]  1.9701000  2.0043217  2.0101309  2.0290190  2.0303645  2.0408521
-## [115]  2.0481293  2.1098224  2.1809115  2.2030513  2.2588213  2.2726893
-## [121]  2.2795611  2.2822604  2.2890917  2.2948037  2.2979947  2.3615712
-## [127]  2.3780659  2.3820737  2.3912496  2.3938429  2.3945156  2.4243640
-## [133]  2.4518676  2.5122689  2.5271598  2.5402247  2.6007133  2.6058642
-## [139]  2.6378289  2.6392085  2.6698716  2.7127528  2.7346504  2.7458504
-## [145]  2.7938790  2.8187886  2.8579373  2.8684891  2.8735648  2.9236005
-## [151]  2.9605674  3.0683454  3.0918358  3.2002444  3.2199122  3.2604122
-## [157]  3.3175978  3.3763040  3.4193302  3.4377354  3.4938713  3.6581995
-## [163]  3.7615714  3.8357459  3.9359306  3.9746397  4.1135306  4.1411706
-## [169]  4.1493902  4.2004903  4.2588981  4.4083482  4.6095201  4.6169007
-## [175]  4.8837459  4.9546117  5.0079781  5.1159532  5.4983121  5.5749811
-## [181]  5.6051537  6.0413012  6.4798526  6.6161360  6.8365813  6.8962392
-## [187]  6.9248178  7.0248301  7.5569775  8.1701575 10.0473458 11.0031217
-## [193] 11.1475532 11.6438845 13.0439489 15.0665377 15.1607560 17.2986174
-## [199] 18.7944791</code></pre>
-<p>There is a “jump” at merge 39.</p>
 </div>
-<div id="fnscale--1e-20" class="section level4">
-<h4>*fnscale = -1e-20</h4>
-<pre class="r"><code>optim.out.filename &lt;- &quot;/optimizing_result/olive-kde-oil-mixture-sample-optima-scale=-1e-20.R&quot;
-optim.out.pathname &lt;- paste(here(), optim.out.filename, sep = &quot;\\&quot;)
+<div id="numerical-optimization" class="section level4">
+<h4>Numerical Optimization</h4>
+<div id="fnscale--1" class="section level5">
+<h5>*fnscale = -1</h5>
+<pre class="r"><code>optim.out.filename &lt;- &quot;/optimizing_result/olive-oil-mixture-sample-optima-scale=-1.R&quot;
+optim.out.pathname &lt;- paste(dir, optim.out.filename, sep = &quot;\\&quot;)
+
 
 gradient &lt;- make.kde.gradient(X.train = sphered.mix.oil, h = h.mix.oil)
-control &lt;- control &lt;- list(&quot;maxit&quot; = 10000, &quot;fnscale&quot; = -1e-20)
+control &lt;- control &lt;- list(&quot;maxit&quot; = 10000, &quot;fnscale&quot; = -1, reltol = 1e-1000)
 
-optimize.density(sphered.mix.oil, density.oil.sample, optim.out.pathname, gradient = gradient, control = control, echo = F)</code></pre>
+optimize.density(sphered.mix.oil, density.oil.sample, optim.out.pathname, gradient = gradient, control = control, echo = echo)</code></pre>
 <pre class="r"><code>optima &lt;- read.optim(sphered.mix.oil, optim.out.pathname)</code></pre>
 <pre><code>## [1] 0</code></pre>
 <pre class="r"><code>clust &lt;- hclust(dist(optima), method = &quot;ward.D2&quot;)
 clust$height</code></pre>
-<pre><code>##   [1] 2.760804e-05 2.780681e-05 3.378196e-05 3.506933e-05 3.575375e-05
-##   [6] 3.670484e-05 3.709876e-05 4.434470e-05 4.750542e-05 5.006462e-05
-##  [11] 5.153731e-05 5.208015e-05 5.359452e-05 5.505639e-05 5.583760e-05
-##  [16] 5.668485e-05 5.688924e-05 5.744224e-05 5.822393e-05 6.102314e-05
-##  [21] 6.271629e-05 6.362033e-05 6.717909e-05 6.924002e-05 6.977749e-05
-##  [26] 6.983144e-05 7.311054e-05 7.994933e-05 8.660877e-05 8.711537e-05
-##  [31] 8.940201e-05 8.940516e-05 9.358762e-05 1.082570e-04 1.084689e-04
-##  [36] 1.160568e-04 1.253358e-04 1.275434e-04 1.289257e-04 1.359648e-04
-##  [41] 1.374106e-04 1.406407e-04 1.415000e-04 1.463394e-04 1.480919e-04
-##  [46] 1.617180e-04 1.682307e-04 2.316467e-04 2.387525e-04 2.810957e-04
-##  [51] 2.988897e-04 3.692107e-04 4.351886e-04 4.367523e-04 7.329783e-01
-##  [56] 7.971083e-01 8.813576e-01 9.218699e-01 9.787859e-01 1.001793e+00
-##  [61] 1.046821e+00 1.086176e+00 1.100939e+00 1.106811e+00 1.115092e+00
-##  [66] 1.135486e+00 1.143280e+00 1.237500e+00 1.265852e+00 1.332499e+00
-##  [71] 1.355236e+00 1.359756e+00 1.360709e+00 1.372549e+00 1.380961e+00
-##  [76] 1.397563e+00 1.398004e+00 1.401244e+00 1.431780e+00 1.482678e+00
-##  [81] 1.486370e+00 1.493666e+00 1.499110e+00 1.500592e+00 1.507564e+00
-##  [86] 1.520296e+00 1.543787e+00 1.545574e+00 1.546782e+00 1.555558e+00
-##  [91] 1.601333e+00 1.609775e+00 1.617392e+00 1.631784e+00 1.645445e+00
-##  [96] 1.655719e+00 1.689362e+00 1.726053e+00 1.752572e+00 1.760797e+00
-## [101] 1.779141e+00 1.807559e+00 1.815034e+00 1.850974e+00 1.867247e+00
-## [106] 1.877167e+00 1.901200e+00 1.906596e+00 1.915443e+00 1.921425e+00
-## [111] 1.921792e+00 1.924172e+00 1.932476e+00 1.964353e+00 1.968255e+00
-## [116] 1.982683e+00 2.003445e+00 2.026458e+00 2.030667e+00 2.119774e+00
-## [121] 2.124945e+00 2.149505e+00 2.256475e+00 2.288970e+00 2.294749e+00
-## [126] 2.298090e+00 2.325711e+00 2.361552e+00 2.369253e+00 2.378070e+00
-## [131] 2.380394e+00 2.393409e+00 2.419392e+00 2.423659e+00 2.441331e+00
-## [136] 2.446051e+00 2.523395e+00 2.540210e+00 2.583356e+00 2.599159e+00
-## [141] 2.600713e+00 2.646656e+00 2.712444e+00 2.744941e+00 2.759745e+00
-## [146] 2.818481e+00 2.834458e+00 2.856947e+00 2.868080e+00 2.873564e+00
-## [151] 2.880602e+00 2.889216e+00 2.927210e+00 3.043719e+00 3.083526e+00
-## [156] 3.216992e+00 3.228759e+00 3.234560e+00 3.257841e+00 3.425207e+00
-## [161] 3.436706e+00 3.493870e+00 3.530865e+00 3.676315e+00 3.688980e+00
-## [166] 3.701703e+00 3.761661e+00 4.113519e+00 4.139996e+00 4.259802e+00
-## [171] 4.265604e+00 4.341864e+00 4.408119e+00 4.617295e+00 4.934502e+00
-## [176] 5.115910e+00 5.115979e+00 5.200261e+00 5.444888e+00 5.575104e+00
-## [181] 5.576720e+00 5.738918e+00 6.354090e+00 6.727266e+00 6.964123e+00
-## [186] 6.988157e+00 7.543688e+00 7.546440e+00 7.766358e+00 8.169525e+00
-## [191] 9.672827e+00 1.058181e+01 1.150921e+01 1.300784e+01 1.307066e+01
-## [196] 1.509309e+01 1.578615e+01 1.616742e+01 1.883000e+01</code></pre>
-<p>There is a “jump” at merge 55.</p>
+<pre><code>##   [1] 2.751831e-10 1.020676e-09 1.932899e-09 4.244018e-09 4.460894e-09
+##   [6] 5.512648e-09 5.692834e-09 6.564751e-09 7.574275e-09 7.702469e-09
+##  [11] 7.845259e-09 9.301734e-09 1.032001e-08 1.072389e-08 1.090029e-08
+##  [16] 1.102226e-08 1.105180e-08 1.185634e-08 1.243088e-08 1.243271e-08
+##  [21] 1.336098e-08 1.394608e-08 1.435661e-08 1.438120e-08 1.461151e-08
+##  [26] 1.493082e-08 1.533684e-08 1.570809e-08 1.883060e-08 1.899733e-08
+##  [31] 1.944652e-08 1.955050e-08 1.960304e-08 1.984722e-08 2.095191e-08
+##  [36] 2.162640e-08 2.250680e-08 2.397162e-08 2.403062e-08 2.426967e-08
+##  [41] 2.497067e-08 2.544319e-08 2.875622e-08 2.880396e-08 2.980648e-08
+##  [46] 3.014978e-08 3.039902e-08 3.041378e-08 3.101242e-08 3.142086e-08
+##  [51] 3.221453e-08 3.224911e-08 3.299876e-08 3.319857e-08 3.450369e-08
+##  [56] 3.476218e-08 3.513168e-08 3.679860e-08 3.735495e-08 3.758238e-08
+##  [61] 4.247265e-08 4.301243e-08 4.740058e-08 4.843142e-08 4.982892e-08
+##  [66] 5.226197e-08 5.884712e-08 5.909667e-08 5.944025e-08 6.103759e-08
+##  [71] 6.173517e-08 6.509482e-08 6.521306e-08 6.572140e-08 8.004350e-08
+##  [76] 8.269686e-08 9.777801e-08 1.355851e-07 1.585671e-07 1.688938e-07
+##  [81] 2.922785e-07 3.885305e-01 4.289194e-01 4.373809e-01 4.496795e-01
+##  [86] 4.680526e-01 5.024056e-01 5.046458e-01 5.681553e-01 5.750246e-01
+##  [91] 5.917324e-01 6.127743e-01 6.214623e-01 6.233827e-01 6.283948e-01
+##  [96] 6.327504e-01 6.595903e-01 6.611423e-01 6.751667e-01 6.846596e-01
+## [101] 6.943207e-01 6.961536e-01 7.007366e-01 7.038174e-01 7.149287e-01
+## [106] 7.149819e-01 7.199040e-01 7.210039e-01 7.235096e-01 7.346148e-01
+## [111] 7.400736e-01 7.636758e-01 7.671636e-01 7.696878e-01 7.730109e-01
+## [116] 7.801051e-01 7.848925e-01 7.875413e-01 7.882923e-01 8.205022e-01
+## [121] 8.270735e-01 8.432468e-01 8.597582e-01 8.612048e-01 8.647689e-01
+## [126] 8.655775e-01 8.662189e-01 8.664519e-01 8.681214e-01 8.799786e-01
+## [131] 8.991066e-01 9.002449e-01 9.083739e-01 9.204506e-01 9.286404e-01
+## [136] 9.318889e-01 9.408713e-01 9.461397e-01 9.511541e-01 9.512138e-01
+## [141] 9.585219e-01 9.605949e-01 9.613207e-01 9.636400e-01 9.715439e-01
+## [146] 9.738079e-01 9.759088e-01 9.790275e-01 9.878295e-01 9.893232e-01
+## [151] 9.993370e-01 1.004304e+00 1.004330e+00 1.004452e+00 1.010121e+00
+## [156] 1.016112e+00 1.028278e+00 1.028767e+00 1.030666e+00 1.033046e+00
+## [161] 1.039829e+00 1.043011e+00 1.045843e+00 1.045981e+00 1.048793e+00
+## [166] 1.049462e+00 1.054287e+00 1.059155e+00 1.061699e+00 1.063137e+00
+## [171] 1.069854e+00 1.071577e+00 1.071669e+00 1.074837e+00 1.079179e+00
+## [176] 1.082659e+00 1.087738e+00 1.088814e+00 1.089399e+00 1.097542e+00
+## [181] 1.103729e+00 1.111506e+00 1.116066e+00 1.116666e+00 1.116855e+00
+## [186] 1.125944e+00 1.136705e+00 1.140602e+00 1.148087e+00 1.148973e+00
+## [191] 1.153079e+00 1.154336e+00 1.155283e+00 1.157197e+00 1.159692e+00
+## [196] 1.161096e+00 1.161660e+00 1.163679e+00 1.167739e+00 1.171618e+00
+## [201] 1.180180e+00 1.180875e+00 1.181988e+00 1.184809e+00 1.192863e+00
+## [206] 1.193244e+00 1.200023e+00 1.200720e+00 1.201537e+00 1.204905e+00
+## [211] 1.208259e+00 1.208527e+00 1.211247e+00 1.214701e+00 1.216108e+00
+## [216] 1.218525e+00 1.228557e+00 1.230691e+00 1.231112e+00 1.238186e+00
+## [221] 1.245615e+00 1.248626e+00 1.249286e+00 1.250998e+00 1.260840e+00
+## [226] 1.261183e+00 1.266657e+00 1.276388e+00 1.276765e+00 1.284458e+00
+## [231] 1.284577e+00 1.284790e+00 1.286091e+00 1.287901e+00 1.288463e+00
+## [236] 1.289129e+00 1.293450e+00 1.297215e+00 1.302843e+00 1.307583e+00
+## [241] 1.309365e+00 1.309815e+00 1.318539e+00 1.322611e+00 1.323448e+00
+## [246] 1.325925e+00 1.328246e+00 1.328717e+00 1.328810e+00 1.331259e+00
+## [251] 1.331595e+00 1.332630e+00 1.335596e+00 1.337096e+00 1.340055e+00
+## [256] 1.342015e+00 1.345156e+00 1.351740e+00 1.352227e+00 1.355963e+00
+## [261] 1.356901e+00 1.357498e+00 1.365383e+00 1.374543e+00 1.376974e+00
+## [266] 1.378022e+00 1.387874e+00 1.392666e+00 1.393989e+00 1.412712e+00
+## [271] 1.414200e+00 1.415201e+00 1.422794e+00 1.424891e+00 1.424927e+00
+## [276] 1.436435e+00 1.441921e+00 1.442256e+00 1.450132e+00 1.450593e+00
+## [281] 1.453643e+00 1.455439e+00 1.460935e+00 1.469163e+00 1.474504e+00
+## [286] 1.477031e+00 1.477695e+00 1.478845e+00 1.479516e+00 1.486631e+00
+## [291] 1.486918e+00 1.496820e+00 1.501304e+00 1.503696e+00 1.506574e+00
+## [296] 1.514304e+00 1.514452e+00 1.516544e+00 1.520809e+00 1.522971e+00
+## [301] 1.523893e+00 1.524447e+00 1.537039e+00 1.544655e+00 1.565105e+00
+## [306] 1.565238e+00 1.568100e+00 1.570095e+00 1.574010e+00 1.583641e+00
+## [311] 1.590547e+00 1.591590e+00 1.593416e+00 1.596727e+00 1.599031e+00
+## [316] 1.610973e+00 1.615329e+00 1.616936e+00 1.619839e+00 1.628038e+00
+## [321] 1.630223e+00 1.633414e+00 1.640380e+00 1.640817e+00 1.642276e+00
+## [326] 1.642337e+00 1.650116e+00 1.650355e+00 1.660913e+00 1.661667e+00
+## [331] 1.663388e+00 1.689191e+00 1.693950e+00 1.696437e+00 1.700460e+00
+## [336] 1.701391e+00 1.704836e+00 1.713305e+00 1.725745e+00 1.728732e+00
+## [341] 1.735568e+00 1.738412e+00 1.742402e+00 1.745706e+00 1.746039e+00
+## [346] 1.757002e+00 1.773102e+00 1.775580e+00 1.778474e+00 1.782887e+00
+## [351] 1.788059e+00 1.802645e+00 1.810220e+00 1.811403e+00 1.828450e+00
+## [356] 1.829644e+00 1.839831e+00 1.841312e+00 1.846622e+00 1.849002e+00
+## [361] 1.852424e+00 1.857616e+00 1.871222e+00 1.878190e+00 1.883763e+00
+## [366] 1.890220e+00 1.890285e+00 1.895361e+00 1.899268e+00 1.915619e+00
+## [371] 1.915931e+00 1.916215e+00 1.924939e+00 1.926816e+00 1.929917e+00
+## [376] 1.933451e+00 1.934364e+00 1.941528e+00 1.943240e+00 1.944833e+00
+## [381] 1.956827e+00 1.960762e+00 1.976283e+00 1.980415e+00 1.986164e+00
+## [386] 1.997209e+00 2.010452e+00 2.035892e+00 2.047902e+00 2.064786e+00
+## [391] 2.068443e+00 2.083224e+00 2.091876e+00 2.100961e+00 2.125519e+00
+## [396] 2.128163e+00 2.131327e+00 2.141002e+00 2.158837e+00 2.161493e+00
+## [401] 2.163990e+00 2.177593e+00 2.179114e+00 2.184248e+00 2.188976e+00
+## [406] 2.189662e+00 2.197390e+00 2.198975e+00 2.203805e+00 2.216249e+00
+## [411] 2.223235e+00 2.244085e+00 2.244674e+00 2.251452e+00 2.265379e+00
+## [416] 2.281528e+00 2.295248e+00 2.316999e+00 2.320931e+00 2.330429e+00
+## [421] 2.330592e+00 2.347323e+00 2.348130e+00 2.360640e+00 2.382987e+00
+## [426] 2.418270e+00 2.418499e+00 2.424123e+00 2.428127e+00 2.439677e+00
+## [431] 2.444721e+00 2.456603e+00 2.457418e+00 2.460438e+00 2.464686e+00
+## [436] 2.467933e+00 2.518226e+00 2.533920e+00 2.569355e+00 2.584851e+00
+## [441] 2.596086e+00 2.644730e+00 2.681511e+00 2.700886e+00 2.703785e+00
+## [446] 2.726153e+00 2.735318e+00 2.736393e+00 2.783203e+00 2.786948e+00
+## [451] 2.789354e+00 2.810712e+00 2.839394e+00 2.857025e+00 2.858492e+00
+## [456] 2.867419e+00 2.870866e+00 2.872750e+00 2.874071e+00 2.879204e+00
+## [461] 2.895983e+00 2.896019e+00 2.950352e+00 2.973131e+00 2.974173e+00
+## [466] 2.993173e+00 3.013112e+00 3.020603e+00 3.031317e+00 3.037214e+00
+## [471] 3.062223e+00 3.069900e+00 3.089618e+00 3.091185e+00 3.093277e+00
+## [476] 3.096536e+00 3.107440e+00 3.151871e+00 3.172646e+00 3.173180e+00
+## [481] 3.194283e+00 3.202390e+00 3.203621e+00 3.263109e+00 3.270074e+00
+## [486] 3.278943e+00 3.291499e+00 3.372487e+00 3.432108e+00 3.479400e+00
+## [491] 3.587269e+00 3.592786e+00 3.635921e+00 3.665207e+00 3.723297e+00
+## [496] 3.839538e+00 3.869583e+00 3.869686e+00 3.870560e+00 3.914734e+00
+## [501] 3.930794e+00 4.020144e+00 4.027054e+00 4.045177e+00 4.056452e+00
+## [506] 4.057833e+00 4.105792e+00 4.124502e+00 4.327724e+00 4.369118e+00
+## [511] 4.388498e+00 4.416142e+00 4.457638e+00 4.475666e+00 4.512922e+00
+## [516] 4.525251e+00 4.636232e+00 4.647291e+00 4.728830e+00 4.778017e+00
+## [521] 5.025852e+00 5.035044e+00 5.072752e+00 5.232561e+00 5.281928e+00
+## [526] 5.360670e+00 5.368754e+00 5.402659e+00 5.519257e+00 5.579359e+00
+## [531] 5.721077e+00 5.735327e+00 5.813685e+00 5.825827e+00 5.875422e+00
+## [536] 6.169121e+00 6.186466e+00 6.187861e+00 6.468477e+00 6.611970e+00
+## [541] 6.708361e+00 6.754039e+00 6.974113e+00 7.487141e+00 7.527240e+00
+## [546] 7.635650e+00 7.831213e+00 7.989468e+00 8.228815e+00 8.533117e+00
+## [551] 9.233142e+00 9.431174e+00 9.551458e+00 9.569265e+00 9.593792e+00
+## [556] 9.692867e+00 9.944678e+00 1.050114e+01 1.196372e+01 1.202291e+01
+## [561] 1.220074e+01 1.261102e+01 1.338481e+01 1.368457e+01 1.607010e+01
+## [566] 1.973506e+01 2.007278e+01 2.642270e+01 2.848601e+01 2.915933e+01
+## [571] 2.977318e+01</code></pre>
+<p>There is a “jump” at merge 82.</p>
 </div>
-<div id="fnscale--1e-30" class="section level4">
-<h4>*fnscale = -1e-30</h4>
-<pre class="r"><code>optim.out.filename &lt;- &quot;/optimizing_result/olive-kde-oil-mixture-sample-optima-scale=-1e-30.R&quot;
-optim.out.pathname &lt;- paste(here(), optim.out.filename, sep = &quot;\\&quot;)
+<div id="fnscale--10" class="section level5">
+<h5>*fnscale = -10</h5>
+<pre class="r"><code>optim.out.filename &lt;- &quot;/optimizing_result/olive-oil-mixture-sample-optima-scale=-10.R&quot;
+optim.out.pathname &lt;- paste(dir, optim.out.filename, sep = &quot;\\&quot;)
+
+gradient &lt;- make.kde.gradient(X.train = sphered.mix.oil, h = h.mix.oil)
+control &lt;- control &lt;- list(&quot;maxit&quot; = 10000, &quot;fnscale&quot; = -10)
+
+optimize.density(sphered.mix.oil, density.oil.sample, optim.out.pathname, gradient = gradient, control = control, echo = echo)</code></pre>
+<pre class="r"><code>optima &lt;- read.optim(sphered.mix.oil, optim.out.pathname)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>clust &lt;- hclust(dist(optima), method = &quot;ward.D2&quot;)
+clust$height</code></pre>
+<pre><code>##   [1] 7.710393e-06 1.113344e-05 1.462193e-05 1.704379e-05 3.789673e-05
+##   [6] 6.142289e-05 6.338460e-05 7.614989e-05 8.571411e-05 1.049367e-04
+##  [11] 1.082036e-04 1.095235e-04 1.185612e-04 1.239336e-04 1.284050e-04
+##  [16] 1.435756e-04 1.527224e-04 1.759876e-04 1.812220e-04 1.936524e-04
+##  [21] 1.940131e-04 2.019331e-04 2.235814e-04 2.291604e-04 2.324040e-04
+##  [26] 2.453266e-04 2.466378e-04 2.562495e-04 2.790271e-04 2.915582e-04
+##  [31] 3.033555e-04 3.057066e-04 3.121728e-04 3.132244e-04 3.203385e-04
+##  [36] 3.273958e-04 3.443756e-04 3.484383e-04 3.514381e-04 3.761535e-04
+##  [41] 3.812717e-04 4.186910e-04 4.214639e-04 4.229735e-04 4.486620e-04
+##  [46] 4.547817e-04 4.602376e-04 4.657846e-04 4.837623e-04 4.884431e-04
+##  [51] 5.013312e-04 5.040903e-04 5.093660e-04 5.287840e-04 5.318072e-04
+##  [56] 5.403553e-04 5.451726e-04 5.576716e-04 5.666404e-04 5.874344e-04
+##  [61] 6.149299e-04 6.314236e-04 6.338239e-04 6.626642e-04 7.318800e-04
+##  [66] 8.283056e-04 8.317972e-04 8.765971e-04 9.425758e-04 1.076142e-03
+##  [71] 1.275623e-03 1.289898e-03 1.328872e-03 1.507036e-03 1.524292e-03
+##  [76] 1.591037e-03 1.935395e-03 1.972430e-03 2.633658e-03 3.051744e-03
+##  [81] 4.663955e-03 3.908360e-01 4.289186e-01 4.375690e-01 4.500930e-01
+##  [86] 4.695310e-01 5.024041e-01 5.046487e-01 5.680701e-01 5.750301e-01
+##  [91] 5.918060e-01 6.127756e-01 6.214688e-01 6.234035e-01 6.284006e-01
+##  [96] 6.327953e-01 6.595915e-01 6.617694e-01 6.756020e-01 6.846281e-01
+## [101] 6.943311e-01 6.962464e-01 7.007353e-01 7.038301e-01 7.149844e-01
+## [106] 7.153836e-01 7.199115e-01 7.211378e-01 7.235101e-01 7.348473e-01
+## [111] 7.401597e-01 7.636761e-01 7.669387e-01 7.696984e-01 7.730654e-01
+## [116] 7.802177e-01 7.849006e-01 7.875482e-01 7.880421e-01 8.202959e-01
+## [121] 8.269203e-01 8.432315e-01 8.596575e-01 8.615624e-01 8.650130e-01
+## [126] 8.655862e-01 8.662378e-01 8.662724e-01 8.681168e-01 8.800475e-01
+## [131] 8.991037e-01 9.002816e-01 9.083887e-01 9.204198e-01 9.286299e-01
+## [136] 9.316138e-01 9.408763e-01 9.457301e-01 9.511813e-01 9.512207e-01
+## [141] 9.585409e-01 9.606333e-01 9.615328e-01 9.637281e-01 9.713874e-01
+## [146] 9.740432e-01 9.759640e-01 9.790283e-01 9.878940e-01 9.894046e-01
+## [151] 9.994496e-01 1.004131e+00 1.004330e+00 1.004456e+00 1.010560e+00
+## [156] 1.016112e+00 1.028345e+00 1.028774e+00 1.030773e+00 1.032803e+00
+## [161] 1.039840e+00 1.043088e+00 1.045866e+00 1.045950e+00 1.048802e+00
+## [166] 1.049117e+00 1.054291e+00 1.059162e+00 1.061757e+00 1.063212e+00
+## [171] 1.070176e+00 1.071612e+00 1.071723e+00 1.074996e+00 1.079172e+00
+## [176] 1.083437e+00 1.087728e+00 1.088968e+00 1.089409e+00 1.097554e+00
+## [181] 1.103738e+00 1.111509e+00 1.116239e+00 1.116666e+00 1.117333e+00
+## [186] 1.125957e+00 1.136628e+00 1.140605e+00 1.148093e+00 1.148973e+00
+## [191] 1.153054e+00 1.154362e+00 1.155239e+00 1.157096e+00 1.159789e+00
+## [196] 1.161160e+00 1.161660e+00 1.163683e+00 1.167569e+00 1.171832e+00
+## [201] 1.180187e+00 1.180872e+00 1.181981e+00 1.184804e+00 1.192857e+00
+## [206] 1.193249e+00 1.199852e+00 1.200572e+00 1.201417e+00 1.204775e+00
+## [211] 1.208259e+00 1.208441e+00 1.211301e+00 1.214421e+00 1.215998e+00
+## [216] 1.218475e+00 1.228736e+00 1.230878e+00 1.231094e+00 1.238099e+00
+## [221] 1.245584e+00 1.248558e+00 1.249242e+00 1.250998e+00 1.260828e+00
+## [226] 1.261183e+00 1.266659e+00 1.275927e+00 1.276766e+00 1.284443e+00
+## [231] 1.284604e+00 1.284741e+00 1.285954e+00 1.287900e+00 1.288408e+00
+## [236] 1.289134e+00 1.293399e+00 1.297215e+00 1.302792e+00 1.307583e+00
+## [241] 1.309808e+00 1.309829e+00 1.319010e+00 1.322582e+00 1.323314e+00
+## [246] 1.325949e+00 1.328347e+00 1.328700e+00 1.328717e+00 1.331564e+00
+## [251] 1.331673e+00 1.332482e+00 1.335708e+00 1.337488e+00 1.340041e+00
+## [256] 1.341885e+00 1.345200e+00 1.351791e+00 1.352227e+00 1.355953e+00
+## [261] 1.357514e+00 1.357803e+00 1.365199e+00 1.374550e+00 1.376959e+00
+## [266] 1.378305e+00 1.387826e+00 1.392910e+00 1.393975e+00 1.412724e+00
+## [271] 1.414492e+00 1.415503e+00 1.422790e+00 1.424926e+00 1.425146e+00
+## [276] 1.436410e+00 1.441899e+00 1.442467e+00 1.450426e+00 1.450444e+00
+## [281] 1.453666e+00 1.455584e+00 1.460023e+00 1.469248e+00 1.474538e+00
+## [286] 1.476806e+00 1.477690e+00 1.478982e+00 1.479521e+00 1.486698e+00
+## [291] 1.487043e+00 1.496869e+00 1.501548e+00 1.503748e+00 1.506733e+00
+## [296] 1.514328e+00 1.514538e+00 1.516625e+00 1.520902e+00 1.522818e+00
+## [301] 1.523971e+00 1.524473e+00 1.537002e+00 1.544631e+00 1.565286e+00
+## [306] 1.565469e+00 1.568376e+00 1.570129e+00 1.573809e+00 1.583834e+00
+## [311] 1.590488e+00 1.591520e+00 1.593435e+00 1.596906e+00 1.599096e+00
+## [316] 1.611016e+00 1.615406e+00 1.617037e+00 1.619962e+00 1.628090e+00
+## [321] 1.630241e+00 1.633314e+00 1.640396e+00 1.640872e+00 1.642211e+00
+## [326] 1.642351e+00 1.650098e+00 1.650369e+00 1.661056e+00 1.661660e+00
+## [331] 1.663730e+00 1.689579e+00 1.694019e+00 1.696411e+00 1.700454e+00
+## [336] 1.701382e+00 1.704845e+00 1.713313e+00 1.725717e+00 1.728749e+00
+## [341] 1.735567e+00 1.738436e+00 1.742307e+00 1.745731e+00 1.745976e+00
+## [346] 1.757376e+00 1.773088e+00 1.775564e+00 1.778513e+00 1.782864e+00
+## [351] 1.788062e+00 1.803269e+00 1.810441e+00 1.811591e+00 1.828456e+00
+## [356] 1.829059e+00 1.839905e+00 1.841234e+00 1.846679e+00 1.849039e+00
+## [361] 1.852430e+00 1.857626e+00 1.871073e+00 1.878122e+00 1.883782e+00
+## [366] 1.890226e+00 1.890301e+00 1.895351e+00 1.899219e+00 1.915628e+00
+## [371] 1.916032e+00 1.916215e+00 1.924888e+00 1.926536e+00 1.929922e+00
+## [376] 1.933609e+00 1.934480e+00 1.941548e+00 1.943260e+00 1.944807e+00
+## [381] 1.956860e+00 1.960969e+00 1.976286e+00 1.980500e+00 1.986261e+00
+## [386] 1.997209e+00 2.010505e+00 2.036013e+00 2.047909e+00 2.064991e+00
+## [391] 2.068467e+00 2.083230e+00 2.092892e+00 2.100964e+00 2.125513e+00
+## [396] 2.128038e+00 2.131437e+00 2.141004e+00 2.158840e+00 2.161507e+00
+## [401] 2.163946e+00 2.177587e+00 2.179001e+00 2.184260e+00 2.188980e+00
+## [406] 2.189771e+00 2.197462e+00 2.199237e+00 2.203602e+00 2.216257e+00
+## [411] 2.223240e+00 2.243762e+00 2.244670e+00 2.251409e+00 2.265455e+00
+## [416] 2.282215e+00 2.295315e+00 2.317105e+00 2.320486e+00 2.330425e+00
+## [421] 2.330528e+00 2.347144e+00 2.348131e+00 2.360690e+00 2.383299e+00
+## [426] 2.418232e+00 2.418808e+00 2.424424e+00 2.428177e+00 2.439658e+00
+## [431] 2.444718e+00 2.456206e+00 2.457441e+00 2.460428e+00 2.464697e+00
+## [436] 2.467947e+00 2.518223e+00 2.533847e+00 2.569523e+00 2.584964e+00
+## [441] 2.596091e+00 2.644731e+00 2.681513e+00 2.700875e+00 2.703687e+00
+## [446] 2.726135e+00 2.735319e+00 2.736533e+00 2.783149e+00 2.786853e+00
+## [451] 2.789164e+00 2.810760e+00 2.839301e+00 2.856932e+00 2.858406e+00
+## [456] 2.867712e+00 2.870870e+00 2.872654e+00 2.874614e+00 2.879204e+00
+## [461] 2.895983e+00 2.896023e+00 2.950118e+00 2.973131e+00 2.974298e+00
+## [466] 2.993340e+00 3.013034e+00 3.020843e+00 3.031304e+00 3.037506e+00
+## [471] 3.062250e+00 3.069883e+00 3.089668e+00 3.091260e+00 3.093281e+00
+## [476] 3.096535e+00 3.107660e+00 3.151799e+00 3.172628e+00 3.173253e+00
+## [481] 3.194280e+00 3.203002e+00 3.203711e+00 3.263148e+00 3.270058e+00
+## [486] 3.279023e+00 3.291430e+00 3.372604e+00 3.432013e+00 3.479444e+00
+## [491] 3.587287e+00 3.592797e+00 3.635904e+00 3.665393e+00 3.723333e+00
+## [496] 3.839519e+00 3.869584e+00 3.869611e+00 3.870630e+00 3.914731e+00
+## [501] 3.930786e+00 4.020209e+00 4.027008e+00 4.045334e+00 4.056437e+00
+## [506] 4.057844e+00 4.105789e+00 4.124524e+00 4.327721e+00 4.369256e+00
+## [511] 4.388499e+00 4.416132e+00 4.457638e+00 4.475889e+00 4.512918e+00
+## [516] 4.525281e+00 4.636394e+00 4.647339e+00 4.728857e+00 4.778175e+00
+## [521] 5.025949e+00 5.034956e+00 5.072817e+00 5.232576e+00 5.281949e+00
+## [526] 5.360646e+00 5.368756e+00 5.402661e+00 5.519430e+00 5.579436e+00
+## [531] 5.721077e+00 5.735341e+00 5.813611e+00 5.825597e+00 5.875425e+00
+## [536] 6.169121e+00 6.186437e+00 6.187918e+00 6.468470e+00 6.611996e+00
+## [541] 6.708019e+00 6.754085e+00 6.974212e+00 7.487149e+00 7.527020e+00
+## [546] 7.635906e+00 7.831267e+00 7.989483e+00 8.228916e+00 8.533187e+00
+## [551] 9.233095e+00 9.431236e+00 9.551448e+00 9.569281e+00 9.593736e+00
+## [556] 9.691840e+00 9.944500e+00 1.050111e+01 1.196359e+01 1.202312e+01
+## [561] 1.220088e+01 1.261105e+01 1.338477e+01 1.368460e+01 1.606997e+01
+## [566] 1.973515e+01 2.007286e+01 2.642270e+01 2.848599e+01 2.915940e+01
+## [571] 2.977318e+01</code></pre>
+<p>There is a “jump” at merge 82.</p>
+</div>
+<div id="fnscale--1e-20" class="section level5">
+<h5>*fnscale = -1e-20</h5>
+<pre class="r"><code>optim.out.filename &lt;- &quot;/optimizing_result/olive-oil-mixture-sample-optima-scale=-1e-20.R&quot;
+optim.out.pathname &lt;- paste(dir, optim.out.filename, sep = &quot;\\&quot;)
+
+gradient &lt;- make.kde.gradient(X.train = sphered.mix.oil, h = h.mix.oil)
+control &lt;- list(&quot;maxit&quot; = 10000, &quot;fnscale&quot; = -1e-20)
+
+optimize.density(sphered.mix.oil, density.oil.sample, optim.out.pathname, gradient = gradient, control = control, echo = echo)</code></pre>
+<pre class="r"><code>optima &lt;- read.optim(sphered.mix.oil, optim.out.pathname)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>clust &lt;- hclust(dist(optima), method = &quot;ward.D2&quot;)
+clust$height</code></pre>
+<pre><code>##   [1] 9.979102e-06 1.082719e-05 1.122757e-05 1.465029e-05 1.576767e-05
+##   [6] 1.749536e-05 1.830944e-05 1.970905e-05 1.978559e-05 1.984269e-05
+##  [11] 2.066667e-05 2.165738e-05 2.184927e-05 2.271010e-05 2.292075e-05
+##  [16] 2.388229e-05 2.443707e-05 2.461000e-05 2.499865e-05 2.508089e-05
+##  [21] 2.598550e-05 2.609643e-05 2.688252e-05 2.709980e-05 2.715263e-05
+##  [26] 2.763319e-05 2.809755e-05 2.836614e-05 2.855768e-05 2.933084e-05
+##  [31] 3.066778e-05 3.214749e-05 3.231517e-05 3.249455e-05 3.319643e-05
+##  [36] 3.595983e-05 3.641177e-05 3.657854e-05 3.864819e-05 3.875893e-05
+##  [41] 3.955062e-05 3.959652e-05 4.072296e-05 4.163005e-05 4.390075e-05
+##  [46] 4.415351e-05 4.491830e-05 4.523593e-05 4.567562e-05 4.626621e-05
+##  [51] 4.810367e-05 4.829957e-05 4.835485e-05 4.957592e-05 4.971654e-05
+##  [56] 5.102067e-05 5.106253e-05 5.131457e-05 5.309329e-05 5.413272e-05
+##  [61] 5.860281e-05 5.868086e-05 5.872479e-05 6.087109e-05 6.111437e-05
+##  [66] 6.181486e-05 6.302808e-05 6.464366e-05 6.566695e-05 6.597793e-05
+##  [71] 6.688529e-05 6.848525e-05 6.942231e-05 7.025640e-05 7.328714e-05
+##  [76] 7.365534e-05 7.500333e-05 7.606293e-05 7.630846e-05 7.759326e-05
+##  [81] 8.196683e-05 8.759838e-05 8.806813e-05 8.881850e-05 9.739288e-05
+##  [86] 9.892531e-05 1.016430e-04 1.039400e-04 1.040565e-04 1.073601e-04
+##  [91] 1.133536e-04 1.189085e-04 1.198036e-04 1.259464e-04 1.263634e-04
+##  [96] 1.293067e-04 1.312839e-04 1.345211e-04 1.381479e-04 1.404450e-04
+## [101] 1.577367e-04 1.599691e-04 1.752301e-04 1.755875e-04 1.866805e-04
+## [106] 1.869249e-04 1.923422e-04 1.929425e-04 1.939991e-04 2.150984e-04
+## [111] 2.298516e-04 2.344798e-04 2.796210e-04 2.832805e-04 3.082979e-04
+## [116] 3.169697e-04 3.747617e-04 3.796500e-04 3.808419e-04 4.556185e-04
+## [121] 4.771236e-04 4.862363e-04 6.604141e-04 6.941785e-04 1.080905e-03
+## [126] 4.953395e-01 5.024077e-01 5.045980e-01 5.495088e-01 5.750545e-01
+## [131] 5.917773e-01 6.127908e-01 6.214715e-01 6.284241e-01 6.611800e-01
+## [136] 6.752171e-01 6.943424e-01 6.961683e-01 7.149690e-01 7.149847e-01
+## [141] 7.198988e-01 7.235716e-01 7.306508e-01 7.346054e-01 7.616201e-01
+## [146] 7.636934e-01 7.801131e-01 7.849061e-01 7.875726e-01 8.091471e-01
+## [151] 8.105951e-01 8.205264e-01 8.271052e-01 8.325583e-01 8.432625e-01
+## [156] 8.647806e-01 8.656002e-01 8.662410e-01 8.678935e-01 8.681397e-01
+## [161] 8.799850e-01 8.991302e-01 9.002487e-01 9.120105e-01 9.204665e-01
+## [166] 9.286642e-01 9.434073e-01 9.448413e-01 9.511872e-01 9.512239e-01
+## [171] 9.523254e-01 9.585325e-01 9.605992e-01 9.613578e-01 9.624404e-01
+## [176] 9.636774e-01 9.759304e-01 9.769959e-01 9.878368e-01 9.893505e-01
+## [181] 1.000507e+00 1.002060e+00 1.004308e+00 1.004333e+00 1.004481e+00
+## [186] 1.013280e+00 1.016117e+00 1.024761e+00 1.028269e+00 1.028754e+00
+## [191] 1.030677e+00 1.033053e+00 1.039860e+00 1.043025e+00 1.045848e+00
+## [196] 1.045987e+00 1.048793e+00 1.049464e+00 1.054273e+00 1.059160e+00
+## [201] 1.061693e+00 1.063619e+00 1.071103e+00 1.071614e+00 1.071680e+00
+## [206] 1.079217e+00 1.083425e+00 1.087747e+00 1.088826e+00 1.089409e+00
+## [211] 1.097546e+00 1.103753e+00 1.111513e+00 1.116671e+00 1.125938e+00
+## [216] 1.136701e+00 1.140607e+00 1.144591e+00 1.148094e+00 1.148976e+00
+## [221] 1.153060e+00 1.154346e+00 1.155285e+00 1.157188e+00 1.161662e+00
+## [226] 1.163682e+00 1.180882e+00 1.181998e+00 1.193252e+00 1.200018e+00
+## [231] 1.200727e+00 1.208260e+00 1.211963e+00 1.216105e+00 1.218516e+00
+## [236] 1.228588e+00 1.231110e+00 1.238168e+00 1.238944e+00 1.245588e+00
+## [241] 1.250999e+00 1.260861e+00 1.261184e+00 1.266662e+00 1.266868e+00
+## [246] 1.276375e+00 1.276771e+00 1.284455e+00 1.284793e+00 1.286086e+00
+## [251] 1.287902e+00 1.289124e+00 1.293453e+00 1.297220e+00 1.297633e+00
+## [256] 1.302854e+00 1.307587e+00 1.309809e+00 1.317028e+00 1.318535e+00
+## [261] 1.322621e+00 1.323425e+00 1.328720e+00 1.328811e+00 1.331262e+00
+## [266] 1.331598e+00 1.337088e+00 1.339279e+00 1.348429e+00 1.352229e+00
+## [271] 1.355956e+00 1.356903e+00 1.365358e+00 1.376961e+00 1.379217e+00
+## [276] 1.386767e+00 1.387880e+00 1.392667e+00 1.407227e+00 1.408822e+00
+## [281] 1.414201e+00 1.415202e+00 1.422798e+00 1.424892e+00 1.424927e+00
+## [286] 1.430673e+00 1.440424e+00 1.441923e+00 1.442257e+00 1.443081e+00
+## [291] 1.447929e+00 1.450134e+00 1.450587e+00 1.455438e+00 1.460827e+00
+## [296] 1.474504e+00 1.477022e+00 1.477697e+00 1.478846e+00 1.485865e+00
+## [301] 1.486918e+00 1.496816e+00 1.497463e+00 1.503699e+00 1.504248e+00
+## [306] 1.506575e+00 1.514307e+00 1.514457e+00 1.516549e+00 1.520244e+00
+## [311] 1.520812e+00 1.522992e+00 1.523898e+00 1.544650e+00 1.558163e+00
+## [316] 1.560164e+00 1.560638e+00 1.565110e+00 1.565241e+00 1.570095e+00
+## [321] 1.583642e+00 1.588932e+00 1.590163e+00 1.590542e+00 1.591582e+00
+## [326] 1.591864e+00 1.593417e+00 1.596727e+00 1.599029e+00 1.610974e+00
+## [331] 1.615329e+00 1.616936e+00 1.619843e+00 1.630224e+00 1.639105e+00
+## [336] 1.640381e+00 1.640818e+00 1.642247e+00 1.642262e+00 1.642338e+00
+## [341] 1.645541e+00 1.650114e+00 1.650356e+00 1.653312e+00 1.655249e+00
+## [346] 1.661666e+00 1.686976e+00 1.689184e+00 1.689657e+00 1.696436e+00
+## [351] 1.700458e+00 1.701387e+00 1.704836e+00 1.708180e+00 1.725730e+00
+## [356] 1.728733e+00 1.745702e+00 1.746039e+00 1.751472e+00 1.757007e+00
+## [361] 1.767167e+00 1.773099e+00 1.775571e+00 1.778485e+00 1.788059e+00
+## [366] 1.811403e+00 1.816222e+00 1.828450e+00 1.829752e+00 1.842779e+00
+## [371] 1.846623e+00 1.849004e+00 1.849026e+00 1.857207e+00 1.864449e+00
+## [376] 1.890219e+00 1.915619e+00 1.916215e+00 1.924910e+00 1.929918e+00
+## [381] 1.933456e+00 1.934367e+00 1.941478e+00 1.943241e+00 1.971057e+00
+## [386] 1.976283e+00 1.997209e+00 2.005237e+00 2.005749e+00 2.010449e+00
+## [391] 2.011445e+00 2.016227e+00 2.035896e+00 2.047907e+00 2.064516e+00
+## [396] 2.064788e+00 2.068444e+00 2.091997e+00 2.100974e+00 2.118839e+00
+## [401] 2.125519e+00 2.128164e+00 2.131335e+00 2.141002e+00 2.158838e+00
+## [406] 2.161487e+00 2.164565e+00 2.168609e+00 2.184249e+00 2.191812e+00
+## [411] 2.195833e+00 2.200727e+00 2.209183e+00 2.216261e+00 2.244669e+00
+## [416] 2.245985e+00 2.250464e+00 2.251452e+00 2.265374e+00 2.309506e+00
+## [421] 2.315877e+00 2.330433e+00 2.332035e+00 2.357445e+00 2.360641e+00
+## [426] 2.368508e+00 2.371561e+00 2.382986e+00 2.418276e+00 2.418499e+00
+## [431] 2.428150e+00 2.444703e+00 2.457419e+00 2.460431e+00 2.464697e+00
+## [436] 2.467934e+00 2.493347e+00 2.518223e+00 2.533920e+00 2.577921e+00
+## [441] 2.596086e+00 2.614821e+00 2.623461e+00 2.644730e+00 2.681510e+00
+## [446] 2.682252e+00 2.687168e+00 2.726152e+00 2.728887e+00 2.735318e+00
+## [451] 2.735968e+00 2.738826e+00 2.748932e+00 2.767315e+00 2.783202e+00
+## [456] 2.810714e+00 2.858496e+00 2.870866e+00 2.872752e+00 2.879204e+00
+## [461] 2.895983e+00 2.904737e+00 2.923494e+00 2.966417e+00 2.973131e+00
+## [466] 2.974175e+00 3.013112e+00 3.013801e+00 3.020603e+00 3.031326e+00
+## [471] 3.057860e+00 3.062224e+00 3.083429e+00 3.093277e+00 3.096530e+00
+## [476] 3.131918e+00 3.136464e+00 3.172645e+00 3.173174e+00 3.188633e+00
+## [481] 3.194282e+00 3.203622e+00 3.231524e+00 3.234383e+00 3.270074e+00
+## [486] 3.291494e+00 3.327753e+00 3.356326e+00 3.372494e+00 3.381829e+00
+## [491] 3.442189e+00 3.449003e+00 3.468151e+00 3.551122e+00 3.565732e+00
+## [496] 3.569110e+00 3.697701e+00 3.734742e+00 3.775653e+00 3.869577e+00
+## [501] 3.870569e+00 3.909493e+00 3.914743e+00 3.949587e+00 4.026919e+00
+## [506] 4.079690e+00 4.124502e+00 4.147943e+00 4.160650e+00 4.247126e+00
+## [511] 4.252146e+00 4.377802e+00 4.388530e+00 4.416148e+00 4.438263e+00
+## [516] 4.457638e+00 4.461949e+00 4.475934e+00 4.609058e+00 4.628601e+00
+## [521] 4.925315e+00 4.971302e+00 5.039254e+00 5.097477e+00 5.281930e+00
+## [526] 5.368755e+00 5.524848e+00 5.578042e+00 5.579360e+00 5.642139e+00
+## [531] 5.705253e+00 5.721077e+00 5.816684e+00 5.832223e+00 5.875417e+00
+## [536] 6.072034e+00 6.329765e+00 6.468474e+00 6.486869e+00 6.608035e+00
+## [541] 6.726992e+00 6.738876e+00 7.143048e+00 7.183076e+00 7.414940e+00
+## [546] 7.473781e+00 7.644092e+00 7.989026e+00 8.188358e+00 8.209606e+00
+## [551] 8.712022e+00 9.214001e+00 9.384448e+00 9.405727e+00 9.789512e+00
+## [556] 1.022048e+01 1.042588e+01 1.061888e+01 1.124247e+01 1.138603e+01
+## [561] 1.180674e+01 1.198535e+01 1.232811e+01 1.621707e+01 1.700319e+01
+## [566] 1.989229e+01 2.150682e+01 2.544707e+01 2.636561e+01 2.852575e+01
+## [571] 3.113935e+01</code></pre>
+<p>There is a “jump” at merge 126.</p>
+</div>
+<div id="fnscale--1e-30" class="section level5">
+<h5>*fnscale = -1e-30</h5>
+<pre class="r"><code>optim.out.filename &lt;- &quot;/optimizing_result/olive-oil-mixture-sample-optima-scale=-1e-30.R&quot;
+optim.out.pathname &lt;- paste(dir, optim.out.filename, sep = &quot;\\&quot;)
 
 control &lt;- control &lt;- list(&quot;maxit&quot; = 10000, &quot;fnscale&quot; = -1e-30)
 
-optimize.density(sphered.mix.oil, density.oil.sample, optim.out.pathname, gradient = gradient, control = control, echo = F)</code></pre>
+optimize.density(sphered.mix.oil, density.oil.sample, optim.out.pathname, gradient = gradient, control = control, echo = echo)</code></pre>
 <pre class="r"><code>optima &lt;- read.optim(sphered.mix.oil, optim.out.pathname)</code></pre>
 <pre><code>## [1] 0</code></pre>
 <pre class="r"><code>clust &lt;- hclust(dist(optima), method = &quot;ward.D2&quot;)
 clust$height</code></pre>
-<pre><code>##   [1] 2.075568e-05 2.363147e-05 2.482008e-05 2.498167e-05 2.642241e-05
-##   [6] 2.724928e-05 2.785127e-05 2.921746e-05 3.038237e-05 3.151145e-05
-##  [11] 3.319966e-05 3.424562e-05 3.654179e-05 3.876527e-05 4.030632e-05
-##  [16] 4.384981e-05 4.408840e-05 4.683404e-05 4.753791e-05 4.949158e-05
-##  [21] 4.994073e-05 5.025480e-05 5.364829e-05 5.467153e-05 5.708133e-05
-##  [26] 5.806212e-05 6.032841e-05 6.794881e-05 6.932721e-05 7.047366e-05
-##  [31] 7.206696e-05 7.471278e-05 8.511379e-05 8.997456e-05 9.709612e-05
-##  [36] 9.822029e-05 1.096758e-04 1.156475e-04 1.230847e-04 1.264269e-04
-##  [41] 1.266775e-04 1.289708e-04 1.451428e-04 1.567635e-04 1.656852e-04
-##  [46] 2.012168e-04 3.977837e-04 4.490270e-04 9.110006e-04 1.149664e-03
-##  [51] 1.380720e-03 3.689105e-01 7.329134e-01 7.970654e-01 8.513928e-01
-##  [56] 8.813213e-01 9.787625e-01 1.001932e+00 1.007631e+00 1.046756e+00
-##  [61] 1.100867e+00 1.106768e+00 1.114974e+00 1.135383e+00 1.192766e+00
-##  [66] 1.209254e+00 1.265853e+00 1.320170e+00 1.332530e+00 1.355230e+00
-##  [71] 1.359746e+00 1.360753e+00 1.372552e+00 1.380889e+00 1.397612e+00
-##  [76] 1.397949e+00 1.401059e+00 1.431800e+00 1.482732e+00 1.486234e+00
-##  [81] 1.488167e+00 1.493676e+00 1.499092e+00 1.500579e+00 1.507597e+00
-##  [86] 1.520329e+00 1.543714e+00 1.545542e+00 1.546721e+00 1.601278e+00
-##  [91] 1.609802e+00 1.617355e+00 1.631753e+00 1.645451e+00 1.655829e+00
-##  [96] 1.673063e+00 1.689275e+00 1.706937e+00 1.707603e+00 1.713005e+00
-## [101] 1.726137e+00 1.737991e+00 1.752183e+00 1.779130e+00 1.785638e+00
-## [106] 1.807535e+00 1.850903e+00 1.869522e+00 1.877064e+00 1.901220e+00
-## [111] 1.906682e+00 1.915446e+00 1.921486e+00 1.924103e+00 1.932450e+00
-## [116] 1.964297e+00 1.968182e+00 2.003344e+00 2.017666e+00 2.026515e+00
-## [121] 2.030688e+00 2.040036e+00 2.124944e+00 2.149486e+00 2.263391e+00
-## [126] 2.294737e+00 2.298063e+00 2.318569e+00 2.361544e+00 2.369180e+00
-## [131] 2.378073e+00 2.380421e+00 2.393451e+00 2.412831e+00 2.423591e+00
-## [136] 2.441274e+00 2.441844e+00 2.446050e+00 2.540194e+00 2.567115e+00
-## [141] 2.599160e+00 2.600713e+00 2.675413e+00 2.744979e+00 2.759738e+00
-## [146] 2.818472e+00 2.834418e+00 2.856856e+00 2.873563e+00 2.880580e+00
-## [151] 2.967685e+00 2.994825e+00 3.043656e+00 3.083526e+00 3.162814e+00
-## [156] 3.176372e+00 3.217000e+00 3.342199e+00 3.436677e+00 3.466817e+00
-## [161] 3.493868e+00 3.569676e+00 3.594855e+00 3.676321e+00 3.761659e+00
-## [166] 3.940426e+00 4.113529e+00 4.115989e+00 4.139977e+00 4.265525e+00
-## [171] 4.408084e+00 4.617281e+00 4.694406e+00 4.812312e+00 4.901403e+00
-## [176] 5.062838e+00 5.115900e+00 5.116020e+00 5.200238e+00 5.470413e+00
-## [181] 5.504762e+00 5.575087e+00 6.472945e+00 6.630277e+00 6.948644e+00
-## [186] 6.964079e+00 7.347356e+00 7.662905e+00 7.702419e+00 8.169561e+00
-## [191] 9.672788e+00 1.062860e+01 1.171040e+01 1.286609e+01 1.335734e+01
-## [196] 1.533632e+01 1.563526e+01 1.615518e+01 1.877247e+01</code></pre>
-<p>There are is a “jump” at merge 52.</p>
+<pre><code>##   [1] 7.197269e-06 8.783462e-06 1.013483e-05 1.071852e-05 1.203598e-05
+##   [6] 1.571186e-05 1.586261e-05 1.677617e-05 1.729243e-05 1.782640e-05
+##  [11] 1.845653e-05 1.855162e-05 1.889801e-05 1.921652e-05 1.955693e-05
+##  [16] 1.955942e-05 1.997712e-05 1.999516e-05 2.032414e-05 2.063763e-05
+##  [21] 2.253739e-05 2.278344e-05 2.319246e-05 2.387688e-05 2.417100e-05
+##  [26] 2.471569e-05 2.498273e-05 2.500463e-05 2.666344e-05 2.716614e-05
+##  [31] 2.747394e-05 2.755034e-05 2.793372e-05 2.810538e-05 2.837182e-05
+##  [36] 2.861408e-05 2.871569e-05 2.890631e-05 2.909000e-05 3.040575e-05
+##  [41] 3.053820e-05 3.098341e-05 3.131239e-05 3.155094e-05 3.156754e-05
+##  [46] 3.352821e-05 3.377379e-05 3.426566e-05 3.431779e-05 3.468517e-05
+##  [51] 3.500651e-05 3.530803e-05 3.580831e-05 3.603286e-05 3.784025e-05
+##  [56] 3.862373e-05 3.912409e-05 4.128714e-05 4.254854e-05 4.269776e-05
+##  [61] 4.432060e-05 4.438300e-05 4.450286e-05 4.486017e-05 4.489980e-05
+##  [66] 4.529936e-05 4.542649e-05 4.602245e-05 4.646123e-05 4.695182e-05
+##  [71] 4.759836e-05 4.878278e-05 5.122414e-05 5.246709e-05 5.371794e-05
+##  [76] 5.567628e-05 5.867382e-05 5.877126e-05 5.906411e-05 5.966823e-05
+##  [81] 5.999224e-05 6.159579e-05 6.522599e-05 6.542277e-05 6.690831e-05
+##  [86] 7.472891e-05 7.497982e-05 7.733495e-05 7.873257e-05 8.099389e-05
+##  [91] 8.378343e-05 8.473558e-05 9.066246e-05 9.229030e-05 9.610708e-05
+##  [96] 1.010111e-04 1.104212e-04 1.113968e-04 1.177042e-04 1.267419e-04
+## [101] 1.268245e-04 1.301147e-04 1.523546e-04 1.717124e-04 1.855953e-04
+## [106] 2.119494e-04 2.181141e-04 2.306263e-04 2.355736e-04 2.832310e-04
+## [111] 3.048052e-04 3.094060e-04 5.546001e-04 3.885285e-01 4.289193e-01
+## [116] 4.680523e-01 5.750303e-01 5.917194e-01 6.214865e-01 6.283837e-01
+## [121] 6.596369e-01 6.611432e-01 6.751969e-01 6.943543e-01 6.961607e-01
+## [126] 7.007331e-01 7.039133e-01 7.075896e-01 7.149176e-01 7.198702e-01
+## [131] 7.210096e-01 7.234434e-01 7.346421e-01 7.400849e-01 7.635681e-01
+## [136] 7.671707e-01 7.696386e-01 7.714089e-01 7.730197e-01 7.801153e-01
+## [141] 7.875394e-01 7.883524e-01 8.105971e-01 8.204168e-01 8.432534e-01
+## [146] 8.612717e-01 8.655981e-01 8.662393e-01 8.664500e-01 8.678908e-01
+## [151] 8.680599e-01 8.756163e-01 8.800110e-01 8.948444e-01 8.991162e-01
+## [156] 9.002792e-01 9.021557e-01 9.205758e-01 9.287285e-01 9.407782e-01
+## [161] 9.513153e-01 9.585797e-01 9.606810e-01 9.613008e-01 9.623911e-01
+## [166] 9.636445e-01 9.715386e-01 9.738634e-01 9.759664e-01 9.789969e-01
+## [171] 9.879417e-01 9.893457e-01 1.004171e+00 1.004297e+00 1.004419e+00
+## [176] 1.015934e+00 1.016063e+00 1.028248e+00 1.028815e+00 1.033047e+00
+## [181] 1.039809e+00 1.042977e+00 1.045826e+00 1.046007e+00 1.049427e+00
+## [186] 1.054352e+00 1.059224e+00 1.061696e+00 1.071503e+00 1.071699e+00
+## [191] 1.074795e+00 1.083419e+00 1.087785e+00 1.088754e+00 1.089481e+00
+## [196] 1.095201e+00 1.097610e+00 1.098528e+00 1.103692e+00 1.111544e+00
+## [201] 1.116614e+00 1.116837e+00 1.125946e+00 1.136819e+00 1.140620e+00
+## [206] 1.144598e+00 1.148147e+00 1.148927e+00 1.153140e+00 1.154331e+00
+## [211] 1.155323e+00 1.156520e+00 1.157173e+00 1.161163e+00 1.163723e+00
+## [216] 1.176294e+00 1.180215e+00 1.180848e+00 1.182102e+00 1.189954e+00
+## [221] 1.190198e+00 1.193268e+00 1.200074e+00 1.200829e+00 1.208321e+00
+## [226] 1.211271e+00 1.211923e+00 1.216048e+00 1.218488e+00 1.228542e+00
+## [231] 1.231061e+00 1.238249e+00 1.245600e+00 1.247134e+00 1.249303e+00
+## [236] 1.251040e+00 1.260783e+00 1.261223e+00 1.266685e+00 1.276407e+00
+## [241] 1.276706e+00 1.284424e+00 1.284500e+00 1.284783e+00 1.286132e+00
+## [246] 1.287907e+00 1.288419e+00 1.289104e+00 1.297158e+00 1.307535e+00
+## [251] 1.309792e+00 1.312051e+00 1.318565e+00 1.322690e+00 1.323442e+00
+## [256] 1.325936e+00 1.328684e+00 1.328857e+00 1.331277e+00 1.337015e+00
+## [261] 1.339315e+00 1.339969e+00 1.342076e+00 1.348497e+00 1.352224e+00
+## [266] 1.355920e+00 1.356954e+00 1.357508e+00 1.374517e+00 1.376915e+00
+## [271] 1.377996e+00 1.379157e+00 1.387824e+00 1.392626e+00 1.393913e+00
+## [276] 1.414153e+00 1.415153e+00 1.422795e+00 1.424862e+00 1.424904e+00
+## [281] 1.436305e+00 1.442241e+00 1.442273e+00 1.447882e+00 1.450151e+00
+## [286] 1.450629e+00 1.455399e+00 1.460847e+00 1.469169e+00 1.474529e+00
+## [291] 1.477052e+00 1.477394e+00 1.477623e+00 1.478886e+00 1.479516e+00
+## [296] 1.486849e+00 1.496810e+00 1.503670e+00 1.506561e+00 1.511832e+00
+## [301] 1.512818e+00 1.514280e+00 1.514404e+00 1.516500e+00 1.520758e+00
+## [306] 1.522996e+00 1.523851e+00 1.524427e+00 1.536964e+00 1.538955e+00
+## [311] 1.544706e+00 1.565142e+00 1.565212e+00 1.570057e+00 1.570948e+00
+## [316] 1.583670e+00 1.590593e+00 1.591562e+00 1.593398e+00 1.596704e+00
+## [321] 1.598983e+00 1.610976e+00 1.613305e+00 1.615302e+00 1.616915e+00
+## [326] 1.619854e+00 1.630213e+00 1.633443e+00 1.635046e+00 1.640372e+00
+## [331] 1.640818e+00 1.642249e+00 1.642335e+00 1.650112e+00 1.650348e+00
+## [336] 1.660872e+00 1.661662e+00 1.689196e+00 1.690786e+00 1.693941e+00
+## [341] 1.696438e+00 1.700397e+00 1.701351e+00 1.704831e+00 1.708166e+00
+## [346] 1.713332e+00 1.725773e+00 1.728723e+00 1.742424e+00 1.745716e+00
+## [351] 1.746033e+00 1.754325e+00 1.757031e+00 1.759768e+00 1.773092e+00
+## [356] 1.775603e+00 1.778439e+00 1.785601e+00 1.788058e+00 1.802649e+00
+## [361] 1.812536e+00 1.828447e+00 1.839794e+00 1.846628e+00 1.848964e+00
+## [366] 1.852416e+00 1.857571e+00 1.890213e+00 1.890265e+00 1.893956e+00
+## [371] 1.899265e+00 1.905751e+00 1.907050e+00 1.915613e+00 1.916215e+00
+## [376] 1.917990e+00 1.924911e+00 1.929915e+00 1.933491e+00 1.934339e+00
+## [381] 1.936588e+00 1.943229e+00 1.960773e+00 1.962973e+00 1.965954e+00
+## [386] 1.980401e+00 1.997209e+00 2.005483e+00 2.015737e+00 2.035897e+00
+## [391] 2.047091e+00 2.047940e+00 2.054993e+00 2.064537e+00 2.064800e+00
+## [396] 2.068434e+00 2.089585e+00 2.091780e+00 2.100921e+00 2.118842e+00
+## [401] 2.131377e+00 2.140998e+00 2.154133e+00 2.158840e+00 2.161467e+00
+## [406] 2.164515e+00 2.164939e+00 2.177069e+00 2.177606e+00 2.179134e+00
+## [411] 2.184254e+00 2.189513e+00 2.215670e+00 2.216257e+00 2.223253e+00
+## [416] 2.232237e+00 2.244697e+00 2.247249e+00 2.251413e+00 2.258176e+00
+## [421] 2.304441e+00 2.330445e+00 2.347283e+00 2.348130e+00 2.360627e+00
+## [426] 2.371499e+00 2.383004e+00 2.389031e+00 2.418467e+00 2.433494e+00
+## [431] 2.439618e+00 2.444741e+00 2.457419e+00 2.460420e+00 2.464747e+00
+## [436] 2.467386e+00 2.467925e+00 2.507531e+00 2.518187e+00 2.533912e+00
+## [441] 2.545748e+00 2.547586e+00 2.569377e+00 2.592846e+00 2.644730e+00
+## [446] 2.700876e+00 2.703953e+00 2.717133e+00 2.726146e+00 2.732143e+00
+## [451] 2.735317e+00 2.736415e+00 2.783236e+00 2.813163e+00 2.819481e+00
+## [456] 2.843620e+00 2.858534e+00 2.860513e+00 2.870865e+00 2.871153e+00
+## [461] 2.872724e+00 2.879204e+00 2.895983e+00 2.927990e+00 2.948396e+00
+## [466] 2.973132e+00 2.987269e+00 2.993147e+00 3.013109e+00 3.013775e+00
+## [471] 3.062208e+00 3.069858e+00 3.091197e+00 3.093275e+00 3.096512e+00
+## [476] 3.131901e+00 3.173175e+00 3.176621e+00 3.183091e+00 3.194282e+00
+## [481] 3.195082e+00 3.203607e+00 3.236532e+00 3.268779e+00 3.269021e+00
+## [486] 3.270066e+00 3.287829e+00 3.338798e+00 3.365760e+00 3.371523e+00
+## [491] 3.393750e+00 3.565709e+00 3.592812e+00 3.665238e+00 3.777798e+00
+## [496] 3.779621e+00 3.788857e+00 3.855952e+00 3.870595e+00 3.903711e+00
+## [501] 3.932767e+00 3.941534e+00 4.000720e+00 4.003639e+00 4.022925e+00
+## [506] 4.088772e+00 4.105794e+00 4.163414e+00 4.334472e+00 4.369136e+00
+## [511] 4.382599e+00 4.416140e+00 4.446483e+00 4.457638e+00 4.502396e+00
+## [516] 4.512925e+00 4.541120e+00 4.655322e+00 4.670669e+00 4.705742e+00
+## [521] 4.829378e+00 4.851461e+00 4.952387e+00 4.964044e+00 5.072711e+00
+## [526] 5.152687e+00 5.220530e+00 5.449874e+00 5.519273e+00 5.571927e+00
+## [531] 5.579359e+00 5.798557e+00 5.853593e+00 5.875401e+00 5.947542e+00
+## [536] 5.956840e+00 5.965573e+00 6.176334e+00 6.275354e+00 6.383828e+00
+## [541] 6.709180e+00 6.766059e+00 6.861824e+00 7.158912e+00 7.241097e+00
+## [546] 7.563620e+00 7.671218e+00 8.089473e+00 8.255636e+00 8.449260e+00
+## [551] 8.755340e+00 8.776637e+00 9.053080e+00 9.070140e+00 9.272955e+00
+## [556] 9.565854e+00 9.800019e+00 1.034062e+01 1.213850e+01 1.214214e+01
+## [561] 1.231267e+01 1.248418e+01 1.362699e+01 1.391315e+01 1.650701e+01
+## [566] 1.914983e+01 2.061829e+01 2.557181e+01 2.883014e+01 2.979788e+01
+## [571] 3.025863e+01</code></pre>
+<p>There is a “jump” at merge 114.</p>
+</div>
+</div>
+</div>
+<div id="wine" class="section level3">
+<h3>Wine</h3>
+<div id="fit-kde-on-mixture-sample-1" class="section level4">
+<h4>Fit KDE on Mixture Sample</h4>
+<pre class="r"><code>trial.hs &lt;- c(0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0, 1.5, 2.0)
+cv.search.out &lt;- cv.search(sphered.mix.wine, trial.hs)
+h.mix.wine &lt;- cv.search.out$opt.smopar</code></pre>
+<pre class="r"><code>density.wine.sample &lt;- make.gaussian.kernel.density.estimate(sphered.mix.wine, h.mix.wine)</code></pre>
+</div>
+<div id="numerical-optimization-1" class="section level4">
+<h4>Numerical Optimization</h4>
+<pre class="r"><code>optim.out.filename &lt;- &quot;/optimizing_result/wine-mixture-sample-optima-scale=-1.R&quot;
+optim.out.pathname &lt;- paste(dir, optim.out.filename, sep = &quot;\\&quot;)
+
+gradient &lt;- make.kde.gradient(X.train = sphered.mix.wine, h = h.mix.wine)
+control &lt;- control &lt;- list(&quot;maxit&quot; = 10000, &quot;fnscale&quot; = -1)
+
+optimize.density(sphered.mix.wine, density.wine.sample, optim.out.pathname, gradient = gradient, control = control, echo = echo)</code></pre>
+<pre class="r"><code>optima &lt;- read.optim(sphered.mix.wine, optim.out.pathname)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>clust &lt;- hclust(dist(optima), method = &quot;ward.D2&quot;)
+clust$height</code></pre>
+<pre><code>##   [1]  0.02300341  0.04437688  1.28402554  1.45197614  1.59786163
+##   [6]  1.60123447  1.60893396  1.64471853  1.68816462  1.69061053
+##  [11]  1.74337943  1.82123656  1.85725974  1.87824474  1.89485071
+##  [16]  1.89870014  1.93853100  2.06392681  2.07835789  2.11876011
+##  [21]  2.13217615  2.13608306  2.13909850  2.14199638  2.16500559
+##  [26]  2.16541424  2.20006342  2.21330944  2.28049264  2.31822569
+##  [31]  2.32024221  2.35005947  2.38426772  2.39126729  2.40745258
+##  [36]  2.41174704  2.42572199  2.44590193  2.46950090  2.51321733
+##  [41]  2.54256744  2.54910474  2.55217310  2.58261937  2.59170043
+##  [46]  2.60531920  2.61394794  2.61933241  2.65242147  2.66442366
+##  [51]  2.66865054  2.68573498  2.73251504  2.75706844  2.76343780
+##  [56]  2.77186367  2.79314235  2.80603640  2.84230450  2.85743011
+##  [61]  2.86056963  2.90271969  2.90299832  2.90771525  2.90918429
+##  [66]  2.93220505  2.93381484  2.96678730  3.01515823  3.04323609
+##  [71]  3.06037767  3.06364541  3.09041176  3.09247969  3.19692322
+##  [76]  3.24265004  3.27398799  3.27411146  3.30822751  3.32059096
+##  [81]  3.32584274  3.32773405  3.33817678  3.34384939  3.35582635
+##  [86]  3.37685677  3.40080043  3.42791775  3.42935919  3.43893976
+##  [91]  3.45505061  3.48758577  3.49640479  3.54412077  3.57603353
+##  [96]  3.62390471  3.67092059  3.67998310  3.68636286  3.72790357
+## [101]  3.78902498  3.79326046  3.83471673  3.84953329  3.89511928
+## [106]  3.97581823  3.99055213  4.00769033  4.06287697  4.13921868
+## [111]  4.22937001  4.23309767  4.25156940  4.27747673  4.32622357
+## [116]  4.35342680  4.42242745  4.42629502  4.49933382  4.52391289
+## [121]  4.56604071  4.67403054  4.69332940  4.71524204  4.78593626
+## [126]  4.84920623  4.86691927  4.91205612  4.92346553  5.04927503
+## [131]  5.05060909  5.10158408  5.10282846  5.13258268  5.15283486
+## [136]  5.15810355  5.24225156  5.35150229  5.48506788  5.57328526
+## [141]  5.65521043  5.71555852  5.73296033  5.78277776  5.94411162
+## [146]  5.94825369  5.97390693  6.16157066  6.21256785  6.22581170
+## [151]  6.25017918  6.27116424  6.68866872  6.79072147  7.09326803
+## [156]  7.10087399  7.10411715  7.51386993  7.54935063  7.60986248
+## [161]  7.91636327  7.97388744  8.07588012  8.78406963  8.89628885
+## [166]  9.12093609  9.28483531  9.98916841  9.99189644 10.77592934
+## [171] 10.86734507 12.12603249 12.29696203 13.20898645 14.38528795
+## [176] 15.20392105 16.88459441</code></pre>
 </div>
 </div>
 </div>
 <div id="mean-shift" class="section level2">
 <h2>Mean-shift</h2>
 <p>Now we try to run mean-shift algorithm on the mixture sample.</p>
-<pre class="r"><code>ms &lt;- meanShift(sphered.mix.oil, bandwidth = rep(h.mix.oil, 8), iterations = 1000000)</code></pre>
-<pre class="r"><code>max(ms$assignment)</code></pre>
-<pre><code>## [1] 162</code></pre>
-<p>There are 162 groups after applying meanshift algorithm which is consistent with the result of KDE when fnscale = -1, i.e. the original scale.</p>
+<div id="olive-oil-1" class="section level3">
+<h3>Olive Oil</h3>
+<pre class="r"><code>ms &lt;- meanShift(sphered.mix.oil, bandwidth = rep(h.mix.oil, 8), iterations = 1000000)
+max(ms$assignment)</code></pre>
+<pre><code>## [1] 491</code></pre>
+<p>There are 82 groups after applying meanshift algorithm which is consistent with the result of KDE when fnscale = -1, i.e. the original scale.</p>
 <p>How about different bandwidth instead of the one from cross validation? Maybe it was just a bad bandwidth selection. So here we try to adjust the bandwidth h so that it actually gives us 9 groups. By trying out, it shows that we can set h=0.871.</p>
-<pre class="r"><code>ms &lt;- meanShift(sphered.mix.oil, bandwidth = rep(0.871, 8), iterations = 1000000)</code></pre>
-<pre class="r"><code>max(ms$assignment)</code></pre>
-<pre><code>## [1] 9</code></pre>
+<pre class="r"><code>ms &lt;- meanShift(sphered.mix.oil, bandwidth = rep(0.871, 8), iterations = 1000000)
+max(ms$assignment)</code></pre>
+<pre><code>## [1] 7</code></pre>
 <p>Let’s see the corresponding assignment:</p>
 <pre class="r"><code>c(ms$assignment)</code></pre>
-<pre><code>##   [1] 1 2 1 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+<pre><code>##   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 ##  [36] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-##  [71] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3 1 1
-## [106] 1 1 1 1 1 1 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-## [141] 4 4 4 4 4 4 4 5 6 6 1 7 1 6 1 1 1 1 6 1 1 1 1 1 6 8 1 1 1 1 1 1 1 1 1
-## [176] 1 1 1 1 1 1 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9</code></pre>
+##  [71] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1
+## [106] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [141] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [176] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [211] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [246] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [281] 1 1 1 1 1 1 1 1 1 1 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4 1 1 1 1 2 2 2
+## [316] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+## [351] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 2 2 2 2 2 2 2 2 2 2 2 2 2
+## [386] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+## [421] 2 2 2 2 2 2 6 1 2 1 2 2 2 2 1 2 1 2 1 2 2 2 1 2 1 2 1 2 2 2 2 2 2 1 2
+## [456] 2 1 2 1 1 1 2 1 2 2 1 2 2 2 2 2 1 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [491] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [526] 1 1 1 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+## [561] 7 7 7 7 7 7 7 7 7 7 7 7</code></pre>
 <p>Here are the true labels:</p>
 <pre class="r"><code>mix.sample.oil$group.id</code></pre>
-<pre><code>##   [1] 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3
-##  [36] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-##  [71] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4
-## [106] 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 6 6 6 6 6
-## [141] 6 6 6 6 6 6 6 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 8 8 8 8 8 8 8 8 8 8
-## [176] 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9</code></pre>
+<pre><code>##   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+##  [36] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+##  [71] 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+## [106] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+## [141] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+## [176] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+## [211] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+## [246] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 4 4 4
+## [281] 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 5 5 5
+## [316] 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+## [351] 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+## [386] 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
+## [421] 6 6 6 6 6 6 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+## [456] 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+## [491] 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+## [526] 8 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+## [561] 9 9 9 9 9 9 9 9 9 9 9 9</code></pre>
 <p>Apparently the corresponding assignment does not reference to the true labels.</p>
+</div>
+<div id="wine-1" class="section level3">
+<h3>Wine</h3>
+<pre class="r"><code>ms &lt;- meanShift(sphered.mix.wine, bandwidth = rep(h.mix.wine, 13), iterations = 1000000)
+max(ms$assignment)</code></pre>
+<pre><code>## [1] 176</code></pre>
+<p>There are 176 groups after applying meanshift algorithm which is not consistent with the result of KDE when fnscale = -1.</p>
+<p>When bandwidth = 1.35, it produces 3 distinct groups.</p>
+<pre class="r"><code>ms &lt;- meanShift(sphered.mix.wine, bandwidth = rep(1.35, 13), iterations = 1000000)
+max(ms$assignment)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<p>Let’s see the corresponding assignment:</p>
+<pre class="r"><code>c(ms$assignment)</code></pre>
+<pre><code>##   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+##  [36] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+##  [71] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 3 1 1 1 1 1 1 1
+## [106] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [141] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [176] 1 1 1</code></pre>
+<p>Here are the true labels:</p>
+<pre class="r"><code>mix.sample.wine$group.id</code></pre>
+<pre><code>##   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+##  [36] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+##  [71] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+## [106] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3
+## [141] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+## [176] 3 3 3</code></pre>
+<p>Again the corresponding assignment does not reference to the true labels. Most of the observations belong to 1 group.</p>
+</div>
 </div>
 <div id="discussion" class="section level2">
 <h2>Discussion</h2>
 <p>First, the result from optimizing the Gaussian Mixture Model shows that there are 9 “distinct” modes which is equal to the true number of groups.<br />
 Second, by sampling from this mixture model, our KDE estimate or mean-shift algorithm should also give us 9 “distinct” modes if it behaves well. However, this is not the case and it still overestimates the number of modes. Even by increasing the bandwidth to match the true number of modes, it does not produce the same modes.<br />
-Third, by changing the “fnscale” parameter, we got different jumps at the merge distances. This suggests that “fnscale” does change the optimizing result on KDE. Since “fnscale” only rescales the function by a constant, the converging locations should be the same. One explanation might be because there are lots of little “wiggles” in the function that is within the tolerance for convergence. Then by rescaling the function, the wiggles gets “amplified” such that these turn to be the local maximums. Hence, it changes the converging locations for some points. But still, I am not sure exactly why.</p>
+Third, by changing the “fnscale” parameter, we got different jumps at the merge distances. This suggests that “fnscale” does change the optimizing result on KDE. Since “fnscale” only rescales the function by a constant, the converging locations should be the same. One explanation might be because there are lots of little “wiggles” in the function that is within the tolerance for convergence. Then by rescaling the function, the wiggles gets “amplified” such that these turn to be the local maximums. Hence, it changes the converging locations for some points. Here is another explanation from <a href="https://stat.ethz.ch/pipermail/r-help/2008-March/157832.html" class="uri">https://stat.ethz.ch/pipermail/r-help/2008-March/157832.html</a>:<br />
+“The gist is that optim is happiest when the function values f(beta) are not too large and not too small, and ditto for df/dbeta. You may e.g. get convergence issues if your data or your”covariates&quot; are Molar concentrations when the actual values are on the order of microMolar. “Covariates” in quotes because this is not linear, but the gradient df/dbeta plays the part in the local linearization. So you get the opportunity to rescale function values and parameters.&quot;<br />
+If I understand it correctly, since, in each iteration, the algorithm updates the current point based on the gradient and hessian matrix, this means the function values have an effect on the value updates. Therefore, by rescaling the function, we can have different updated values and therefore, different converging sequences. Since there are many local maximums in the function, even starting at the same point, it can converge to different locations with different function scales.</p>
 </div>
 
 
