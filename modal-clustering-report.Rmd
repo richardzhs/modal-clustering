@@ -38,6 +38,7 @@ echo <- F # controls whether outputs sequences during optimization
 source(paste(dir, "function_packages", "kernel-density-estimation-functions.R", sep = dir.sep))
 source(paste(dir, "function_packages", "gaussian-mixture-model-functions.R", sep = dir.sep))
 source(paste(dir, "function_packages", "density-optimizing-functions.R", sep = dir.sep))
+source(paste(dir, "function_packages", "gsl-functions-6-8-2018.R", sep = dir.sep))
 ```
 
 
@@ -101,15 +102,15 @@ ggplot(dat, aes(x = f1, y = f2, label = group_id)) +
 For the sake of demonstration, we took a sample of 500 observations from the dataset
 ```{r}
 set.seed(1234)
-dat_sample <- sample_n(dat, 500)
-dat_sample <- dat_sample[order(dat_sample$group_id),] # order based on group id
-gaussian.2d <- as.matrix(dat_sample[,c('f1','f2')])
+dat.sample <- sample_n(dat, 500)
+dat.sample <- dat.sample[order(dat.sample$group_id),] # order based on group id
+gaussian.2d <- as.matrix(dat.sample[,c('f1','f2')])
 sphered.gaussian.2d <- sphere(gaussian.2d)
 ```
 
 Visualization of the sample:
 ```{r}
-ggplot(dat_sample, aes(x = f1, y = f2, label = group_id)) +
+ggplot(dat.sample, aes(x = f1, y = f2, label = group_id)) +
   geom_point(aes(colour = as.character(group_id)))
 ```
 
@@ -143,6 +144,9 @@ Perform numerical optimization on each data point
 ```{r}
 optim.out.filename <- "/optimizing_result/oil-density-optima.R"
 optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+```
+
+```{r}
 gradient <- make.kde.gradient(sphered.oil, h.oil)
 optimize.density(sphered.oil, density.oil, optim.out.pathname, gradient = gradient, echo = echo)
 ```
@@ -156,9 +160,22 @@ optima <- read.optim(sphered.oil, optim.out.pathname)
 
 ```{r}
 clust <- hclust(dist(optima), method = "ward.D2")
-clust$height[1:60]
+clust$height
 ```
 These are merge distances based on hierarchical clustering of the local maximas. There is a "jump" between 48 and 49 which suggests that there are 572-48=524 distinct groups, which is apparently not true.
+
+```{r}
+estimated.oil.group.id <- cutree(clust, 9)
+```
+
+```{r}
+table(data.frame(true.id = oil.group.id, estimated.id = estimated.oil.group.id))
+```
+
+
+```{r}
+rand.index(oil.group.id, estimated.oil.group.id)
+```
 
 
 ### **2. Wine**
@@ -187,12 +204,12 @@ density.wine <- make.gaussian.kernel.density.estimate(sphered.wine, h.wine)
 ```{r}
 optim.out.filename <- "/optimizing_result/wine-density-optima.R"
 optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+```
 
-
+```{r}
 gradient <- make.kde.gradient(sphered.wine, h.wine)
 optimize.density(sphered.wine, density.wine, optim.out.pathname, gradient = gradient, echo = echo)
 ```
-
 
 ```{r}
 optima <- read.optim(sphered.wine, optim.out.pathname)
@@ -205,7 +222,20 @@ optima <- read.optim(sphered.wine, optim.out.pathname)
 clust <- hclust(dist(optima), method = "ward.D2")
 clust$height
 ```
-There is a significant "jump", which suggest there are 178 distinct groups, i.e. every observation forms a group itself.
+The merge distances are all pretty large, which suggest there are 178 distinct groups, i.e. every observation forms a group itself.
+
+```{r}
+estimated.wine.group.id <- cutree(clust, 3)
+```
+
+```{r}
+table(data.frame(true.id = wine.group.id, estimated.id = estimated.wine.group.id))
+```
+
+```{r}
+rand.index(wine.group.id, estimated.wine.group.id)
+```
+
 
 
 ### **3. 2d Gaussian Clusters**
@@ -234,8 +264,9 @@ density.gaussian.2d <- make.gaussian.kernel.density.estimate(sphered.gaussian.2d
 ```{r}
 optim.out.filename <- "/optimizing_result/gaussian-2d-density-optima-h=0.024-cv.R"
 optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+```
 
-
+```{r}
 gradient <- make.kde.gradient(sphered.gaussian.2d, h.gaussian.2d)
 optimize.density(sphered.gaussian.2d, density.gaussian.2d, optim.out.pathname, gradient = gradient, echo = echo)
 ```
@@ -256,6 +287,19 @@ There is a "jump" at merge 302, suggesting at there are 500-302+1=199 distinct g
 This is the result based on h = 0.024, the bandwidth obtained from cross validation. We now adjust the bandwith to be h = 0.11, that is the same as in mean shift. We want to see how many modes we get in this case.
 
 ```{r}
+estimated.gaussian.2d.group.id <- cutree(clust, 15)
+```
+
+```{r}
+table(data.frame(true.id = dat.sample$group_id, estimated.id = estimated.gaussian.2d.group.id))
+```
+
+```{r}
+rand.index(dat.sample$group_id, estimated.gaussian.2d.group.id)
+```
+
+
+```{r}
 h = 0.11
 density.gaussian.2d <- make.gaussian.kernel.density.estimate(sphered.gaussian.2d, h)
 ```
@@ -263,8 +307,9 @@ density.gaussian.2d <- make.gaussian.kernel.density.estimate(sphered.gaussian.2d
 ```{r}
 optim.out.filename <- "/optimizing_result/gaussian-2d-density-optima-h=0.11.R"
 optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+```
 
-
+```{r}
 gradient <- make.kde.gradient(sphered.gaussian.2d, h)
 optimize.density(sphered.gaussian.2d, density.gaussian.2d, optim.out.pathname, gradient = gradient, echo = echo)
 ```
@@ -278,6 +323,19 @@ clust <- hclust(dist(optima), method = "ward.D2")
 clust$height
 ```
 There are 14 "large" merge distances at the end, which suggests that there are 15 groups. This is consistent with what we expect and is the same as in meanshift algorithm.
+
+```{r}
+estimated.gaussian.2d.group.id <- cutree(clust, 15)
+```
+
+```{r}
+table(data.frame(true.id = dat.sample$group_id, estimated.id = estimated.gaussian.2d.group.id))
+```
+
+```{r}
+rand.index(dat.sample$group_id, estimated.gaussian.2d.group.id)
+```
+An interesting observation is that with cross validation (h = 0.024), the merge distances suggest that there are 199 distinct modes. On the other hand, when h = 0.011, the merge distances suggest that there are 15 distinct modes, which is the same as the true number of groups. However, if we both extract 15 clusters from the hierarchical clustering and compare their rand indices, we notice that the clustering performance is actually better for h = 0.024 (rand index = 0.9482762) than h = 0.011 (rand index = 0.9277147). This seems intuitively contradicting.
 
 ## MeanShift Algorithm
 The second approach is mean-shift algorithm. The idea is to iteratively shift the each point to the weighted average of the density within its neighbourhood until it converges. The weight is determined by the kernel function and the bandwidth h. Here we also use Gaussian kernel by default. The set of all points that converge to the same mode belong to one group.  
@@ -299,13 +357,22 @@ max(ms$assignment)
 ```
 See if it matches the true labels. Here is the corresponding assignment:
 ```{r}
-as.vector(ms$assignment)
+estimated.oil.group.id <- as.vector(ms$assignment)
+estimated.oil.group.id
 ```
 True labels:
 ```{r}
 oil.group.id
 ```
-Clearly the assignments are off.
+Clearly the assignments are off.  
+Contingency Table:
+```{r}
+table(data.frame(true.id = oil.group.id, estimated.id = estimated.oil.group.id))
+```
+Rand Index:  
+```{r}
+rand.index(oil.group.id, estimated.oil.group.id)
+```
 
 
 ### **2. Wine**
@@ -315,6 +382,15 @@ ms <- meanShift(sphered.wine, bandwidth = rep(h.wine, 13), iterations = 1000000)
 max(ms$assignment)
 ```
 There are 178 groups after applying meanshift algorithm which again it is exactly the same as the KDE optimization approach.
+
+```{r}
+estimated.wine.group.id <- as.vector(ms$assignment)
+```
+
+```{r}
+rand.index(wine.group.id, estimated.wine.group.id)
+```
+
 #### Bandwidth matched to the true number of groups
 ```{r}
 ms <- meanShift(sphered.wine, bandwidth = rep(1.565, 13), iterations = 1000000)
@@ -322,13 +398,22 @@ max(ms$assignment)
 ```
 Corresponding assignments:
 ```{r}
-as.vector(ms$assignment)
+estimated.wine.group.id <- as.vector(ms$assignment)
+estimated.wine.group.id
 ```
 True labels:
 ```{r}
 wine.group.id
 ```
 Again, the assignments are off.
+
+```{r}
+table(data.frame(true.id = wine.group.id, estimated.id = estimated.wine.group.id))
+```
+
+```{r}
+rand.index(wine.group.id, estimated.wine.group.id)
+```
 
 
 ### **3. 2d Gaussian Clusters**
@@ -344,18 +429,34 @@ max(ms$assignment)
 ```
 Corresponding assignments:
 ```{r}
-as.vector(ms$assignment)
+estimated.gaussian.2d.group.id <- as.vector(ms$assignment)
+estimated.gaussian.2d.group.id
 ```
 True labels:
 ```{r}
-as.vector(dat_sample$group_id)
+as.vector(dat.sample$group_id)
 ```
-The assignments match the true labels this time (group ids are not exactly the same but they represent the same groups).
+The assignments match the true labels mostly this time (group ids are not exactly the same but they represent the same groups).  
+```{r}
+table(data.frame(true.id = dat.sample$group_id, estimated.id = estimated.gaussian.2d.group.id))
+```
+
+```{r}
+rand.index(dat.sample$group_id, estimated.gaussian.2d.group.id)
+```
+Visualization of the predicted clusters:
+```{r}
+dat.sample.copy <- data.frame(dat.sample)
+dat.sample.copy$predicted_cluster <- as.vector(ms$assignment)
+ggplot(dat.sample.copy, aes(x = f1, y = f2, label = predicted_cluster)) +
+  geom_point(aes(colour = as.character(predicted_cluster)))
+```
+
 
 ## Gaussian Mixture
 The previous two approaches all behave poorly in the way that overestimates the number of modes in each of dataset. This suggests that many of the modes computed in both way do not correspond to the true modes but just some noise from data. One way to reduce such noise can be increasing the bandwidth. This will generally make the estimated density smoother. Before we do that, we first want to verify that given a smooth estimate, are we going to get the right result?
 
-To do that, assume that we know the groups for each dataset beforehand. Then we fit the gaussian mixture model to data using known group labels. After we have the gaussian mixture estimate, we run the optimization again and see the results.
+To do that, assume that we know the groups for each dataset beforehand. Then we fit the gaussian mixture model to data using known group labels as the mixture components. After we have the gaussian mixture estimate, we run the optimization again and see the results.
 
 ### **1. Olive Oil**
 
@@ -371,8 +472,10 @@ mix.dens.oil <- make.dgmm(mix.par.oil)
 ```{r}
 optim.out.filename <- "/optimizing_result/olive-mixture-density-optima.R"
 optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+```
 
-control <- control <- list("maxit" = 10000, "fnscale" = -1e-20)
+```{r}
+control <- control <- list("maxit" = 10000000, "fnscale" = -1e-20)
 gradient <- make.dgmm.gradient(mix.par.oil)
 
 optimize.density(oil.data, mix.dens.oil, optim.out.pathname, gradient = gradient, control = control, echo = echo)
@@ -386,9 +489,26 @@ optima <- read.optim(oil.data, optim.out.pathname)
 
 ```{r}
 clust <- hclust(dist(optima), method = "ward.D2")
-clust$height[550:571]
+clust$height
 ```
 There are 8 "large" merge distances at the end, which suggests that there are 9 groups. This is consistent with what we expect.
+
+```{r}
+estimated.oil.group.id <- cutree(tree = clust, k = 9)
+estimated.oil.group.id
+```
+
+```{r}
+oil.group.id
+```
+
+```{r}
+table(data.frame(true.id = oil.group.id, estimated.id = estimated.oil.group.id))
+```
+
+```{r}
+rand.index(oil.group.id, cutree(tree = clust, k = 9))
+```
 
 
 ### **2. Wine**
@@ -400,18 +520,20 @@ mix.par.wine <- fit.gmm(wine.data, wine.group.id)
 mix.dens.wine <- make.dgmm(mix.par.wine)
 ```
 
+
 #### Numerical Optimization
 
 ```{r}
-optim.out.filename <- "/optimizing_result/wine-mixture-density-optima.R"
+optim.out.filename <- "/optimizing_result/wine-mixture-density-optima-fnscale.R"
 optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+```
 
+```{r}
 control <- list("maxit" = 10000, "fnscale" = -1e-20)
 
 gradient <- make.dgmm.gradient(mix.par.wine)
 optimize.density(wine.data, mix.dens.wine, optim.out.pathname, gradient = gradient, control = control)
 ```
-
 
 ```{r}
 optima <- read.optim(wine.data, optim.out.pathname)
@@ -424,12 +546,25 @@ clust$height
 ```
 There is a "jump" at the second last merge which suggest that there are 3 groups. This is consistent with what we expect.
 
+```{r}
+estimated.wine.group.id <- cutree(tree = clust, k = 3)
+```
+
+```{r}
+table(data.frame(true.id = wine.group.id, estimated.id = estimated.wine.group.id))
+```
+
+```{r}
+rand.index(wine.group.id, estimated.wine.group.id)
+```
+
+
 ### **3. 2d Gaussian Clusters**
 
 #### Fit Mixture Model
 
 ```{r}
-mix.par.gaussian.2d <- fit.gmm(gaussian.2d, dat_sample$group_id)
+mix.par.gaussian.2d <- fit.gmm(gaussian.2d, dat.sample$group_id)
 mix.dens.gaussian.2d <- make.dgmm(mix.par.gaussian.2d)
 ```
 
@@ -438,7 +573,9 @@ mix.dens.gaussian.2d <- make.dgmm(mix.par.gaussian.2d)
 ```{r}
 optim.out.filename <- "/optimizing_result/gaussian-2d-mixture-density-optima.R"
 optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+```
 
+```{r}
 control <- control <- list("maxit" = 10000, "fnscale" = -1e-20)
 gradient <- make.dgmm.gradient(mix.par.gaussian.2d)
 
@@ -457,6 +594,218 @@ clust <- hclust(dist(optima), method = "ward.D2")
 clust$height
 ```
 There are 14 "large" merge distances at the end, which suggests that there are 15 groups. This is consistent with what we expect.
+
+```{r}
+estimated.gaussian.2d.group.id <- cutree(tree = clust, k = 15)
+```
+
+```{r}
+table(data.frame(true.id = dat.sample$group_id, estimated.id = estimated.gaussian.2d.group.id))
+```
+
+```{r}
+rand.index(dat.sample$group_id, estimated.gaussian.2d.group.id)
+```
+
+
+
+## More Experiments on fnscale
+We will use the Gaussian mixture model above to test the fnscale. But instead of k mixture components based on k groups, we will use a single mixture component which should only have one mode at its mean. We will use the oil dataset.
+```{r}
+same.id <- rep(1, 572)
+mix.par.oil <- fit.gmm(oil.data, same.id)
+mix.dens.oil <- make.dgmm(mix.par.oil)
+```
+
+```{r}
+mix.dens.oil(oil.data) # density values at each data point
+```
+
+The minimum density values for 572 data points (it is in order of 1e-32)
+```{r}
+min(mix.dens.oil(oil.data))
+```
+
+### Hypothesis
+Based on the implementation of optim function, it has a relative tolerance with order 1e-8. It stops the optimization when fabs(f - Fmin) > reltol x (fabs(fmin) + reltol). This means if fabs(f - Fmin) > 1e-8, then it will stop when fabs(f - Fmin) / fabs(fmin) > 1e-8. However, if fabs(f - Fmin) < 1e-8, then reltol dominates fabs(fmin) and criterion no longer works. Therefore, this suggests we need to have all the data points to have orders which are greater than 1e-8.  
+Then our hypothesis is: **By rescaling function, we want to make sure all the data points to have orders that are greater the relative tolerance (1e-8). If this is satisfied, the optimization should work properly with no difference.**
+
+### fnscale = -1
+```{r}
+optim.out.filename <- "/optimizing_result/olive-unimodal-mixture-density-optima-fnscale=-1.R"
+optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+```
+
+```{r}
+control <- control <- list("maxit" = 10000000, "fnscale" = -1)
+gradient <- make.dgmm.gradient(mix.par.oil)
+
+optimize.density(oil.data, mix.dens.oil, optim.out.pathname, gradient = gradient, control = control, echo = echo)
+```
+
+```{r}
+optima <- read.optim(oil.data, optim.out.pathname)
+```
+
+```{r}
+clust <- hclust(dist(optima), method = "ward.D2")
+clust$height
+```
+The merge distances are all large.  
+Converged optima:
+```{r}
+optima[1:10,]
+```
+
+Initial location:
+```{r}
+oil.data[1:10,]
+```
+
+True optimum:
+```{r}
+colMeans(oil.data)
+```
+It shows that in the original scale there is no optimization performed.
+
+
+### fnscale = -1e-20
+```{r}
+optim.out.filename <- "/optimizing_result/olive-unimodal-mixture-density-optima-fnscale=-1e-20.R"
+optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+```
+
+```{r}
+control <- control <- list("maxit" = 10000000, "fnscale" = -1e-20)
+gradient <- make.dgmm.gradient(mix.par.oil)
+
+optimize.density(oil.data, mix.dens.oil, optim.out.pathname, gradient = gradient, control = control, echo = echo)
+```
+
+```{r}
+optima <- read.optim(oil.data, optim.out.pathname)
+```
+
+```{r}
+clust <- hclust(dist(optima), method = "ward.D2")
+clust$height
+```
+Converged optima:
+```{r}
+optima[1:10,]
+```
+```{r}
+optima[390,]
+```
+
+True optimum:
+```{r}
+colMeans(oil.data)
+```
+There is one point that is not at the optimum. If we check location and the density at this point:
+```{r}
+oil.data[390,]
+mix.dens.oil(oil.data[390,])
+```
+This is indeed the point that has the lowest density with order of 1e-32. Even by rescaling the funtion by 1e-20, it is still at the order of 1e-12 which is within the tolerance 1e-8. Moreover, the converged location is exactly the same as the initial location, which suggests that it is not updated at all. Therefore, this strongly shows that in order for the optimizer to work, every data point must have an order that is greater than 1e-8.
+
+### fnscale = -1e-25
+```{r}
+optim.out.filename <- "/optimizing_result/olive-unimodal-mixture-density-optima-fnscale=-1e-25.R"
+optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+```
+
+```{r}
+control <- control <- list("maxit" = 10000000, "fnscale" = -1e-25)
+gradient <- make.dgmm.gradient(mix.par.oil)
+
+optimize.density(oil.data, mix.dens.oil, optim.out.pathname, gradient = gradient, control = control, echo = echo)
+```
+
+```{r}
+optima <- read.optim(oil.data, optim.out.pathname)
+```
+
+```{r}
+clust <- hclust(dist(optima), method = "ward.D2")
+clust$height
+```
+
+Converged optima:
+```{r}
+optima[1:10,]
+```
+
+True optimum:
+```{r}
+colMeans(oil.data)
+```
+
+
+### fnscale = -1e-30
+```{r}
+optim.out.filename <- "/optimizing_result/olive-unimodal-mixture-density-optima-fnscale=-1e-30.R"
+optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+```
+
+```{r}
+control <- control <- list("maxit" = 10000000, "fnscale" = -1e-30)
+gradient <- make.dgmm.gradient(mix.par.oil)
+
+optimize.density(oil.data, mix.dens.oil, optim.out.pathname, gradient = gradient, control = control, echo = echo)
+```
+
+```{r}
+optima <- read.optim(oil.data, optim.out.pathname)
+```
+
+```{r}
+clust <- hclust(dist(optima), method = "ward.D2")
+clust$height
+```
+Converged optima:
+```{r}
+optima[1:10,]
+```
+
+True optimum:
+```{r}
+colMeans(oil.data)
+```
+
+
+### fnscale = -1e-40
+```{r}
+optim.out.filename <- "/optimizing_result/olive-unimodal-mixture-density-optima-fnscale=-1e-40.R"
+optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
+```
+
+```{r}
+control <- control <- list("maxit" = 10000000, "fnscale" = -1e-40)
+gradient <- make.dgmm.gradient(mix.par.oil)
+
+optimize.density(oil.data, mix.dens.oil, optim.out.pathname, gradient = gradient, control = control, echo = echo)
+```
+
+```{r}
+optima <- read.optim(oil.data, optim.out.pathname)
+```
+
+```{r}
+clust <- hclust(dist(optima), method = "ward.D2")
+clust$height
+```
+
+```{r}
+optima[1:10,]
+```
+
+True optimum:
+```{r}
+colMeans(oil.data)
+```
+
+Based on the experiment, the result shows that our hypothesis is true. The minimum density value for all the data points is in order of 1e-32. In order to have all the points to have density values greater than 1e-8, we need to at least rescale the functions by 1e-24. In the result, both fnscale = 1 and 1e-20 fails and it shows that for the points that are still below the order of 1e-8, they are not updated at all. With fnscale = 1e-25/1e-30/1e-40, all of the points converge to the same true optimum which is consistent with our hypothesis.
 
 ## Discussion
 So far based on the experiments on olive oil dataset and wine dataset, neither of KDE method or mean shift algorithm performed well on clustering. They both have overwhelmingly many modes which suggest that the fitted models are not smooth. This means we might want to decrease the variance at each point in order to make the KDE smoother. A natural way is to increase the bandwidth h. In this case, variance decreases and bias increases. But we don't care about the bias too much because we don't need the accurate estimate for each point. We only need to know the locations maximas in order to identify the "distinct" modes.  

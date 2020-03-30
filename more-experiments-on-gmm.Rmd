@@ -1,11 +1,11 @@
 ---
 title: "More Experiments on Gaussian Mixture Sample"
 output:
-  html_document:
-    df_print: paged
-    toc: yes
   html_notebook:
     theme: united
+    toc: yes
+  html_document:
+    df_print: paged
     toc: yes
 ---
 ## Introduction
@@ -70,7 +70,7 @@ wine.group.id <- wine.matrix[,1] # group id
 
 ## Fit Mixture Model
 ```{r}
-mix.par.oil <- fit.gmm(oil.data, oil.group.id)
+mix.par.oil <- fit.gmm(oil.data, same.id)
 mix.dens.oil <- make.dgmm(mix.par.oil)
 ```
 
@@ -104,6 +104,7 @@ h.mix.oil <- cv.search.out$opt.smopar
 
 ```{r}
 density.oil.sample <- make.gaussian.kernel.density.estimate(sphered.mix.oil, h.mix.oil)
+density.oil.sample(t(as.matrix(colMeans(sphered.mix.oil))))
 ```
 
 #### Numerical Optimization
@@ -115,7 +116,7 @@ optim.out.pathname <- paste(dir, optim.out.filename, sep = "\\")
 
 
 gradient <- make.kde.gradient(X.train = sphered.mix.oil, h = h.mix.oil)
-control <- control <- list("maxit" = 10000, "fnscale" = -1, reltol = 1e-1000)
+control <- list("maxit" = 10000, "fnscale" = -1)
 
 optimize.density(sphered.mix.oil, density.oil.sample, optim.out.pathname, gradient = gradient, control = control, echo = echo)
 ```
