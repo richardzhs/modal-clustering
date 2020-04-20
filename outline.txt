@@ -1,0 +1,40 @@
+Outline
+
+1.	Introduction (Clustering)
+-  General definition of clustering problem
+-  detect distinct & assign group labels
+-  Density-based clustering 
+   data is sampled from underlying density and groups manifest themselves by modes of underlying density
+   (review in section 2 and comparisons and illustrations of pros and cons in the rest of paper)
+-  Advantages and Disadvantages of density-based clustering (estimating some some property in the true density)
+   + has a clear population structure to estimate
+
+2. Two approaches to density-based clustering	
+(1) optimization approach
+	mode ---> local maximum
+(2) level set approach
+	mode ---> leaves of cluster tree ("modal sets")
+
+3. Conceptual Advantages and Disadvantages of the two approaches
+(1) optimization approach
+   If the true density is a Morse function, 
+   +then every point in the feature space belongs to a domain of attraction (start at each point, and run optimization); domain of attraction defines a partition of feature space 
+
+(2) cluster tree
+   +cluster tree exists for continuous density and the density does not have to be a Morse function
+   +If the true density is a Morse function, each modal set will contain exactly one mode in the calculus sense
+   -do not get a partition of feature space
+   -we don't get natural definition of the domain of attraction
+   
+Conceptually optimization based clustering has many advantages, however, practically produce many modes and there are no ways to measure the prominance of the modes. Whereas in level set approach, we have the ways to measure the prominance of the modes. By increasing the bandwidth in optimization approach, it does not work either.
+
+4.	Experiment
+-	Olive oil
+-	Wine
+-	2d Gaussian clusters
+
+5.	Evaluating Clustering Results
+-  supervised learning performs well with labels, but unsupervised learning can't evaluate clustering methods on label because labels are not known.
+-	One potential way to evaluate clustering methods: First fit Mixture Model, then the number of modes is known and can use it to evaluate clustering methods
+-	Correspondence between modes/clusters and true labels
+6.	Discussion

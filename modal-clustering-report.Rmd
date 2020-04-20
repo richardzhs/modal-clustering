@@ -153,6 +153,15 @@ optimize.density(sphered.oil, density.oil, optim.out.pathname, gradient = gradie
 
 Read optimization result. 0 means all points converge.
 ```{r}
+optima.density <- c()
+for (i in 1:length(optim.out.list)) {
+  optima.density <- c(optima.density, optim.out.list[[i]]$value)
+}
+optima.density[order(optima.density)]
+```
+
+
+```{r}
 optima <- read.optim(sphered.oil, optim.out.pathname)
 ```
 
@@ -197,6 +206,7 @@ h.wine
 
 ```{r}
 density.wine <- make.gaussian.kernel.density.estimate(sphered.wine, h.wine)
+density.wine(sphered.wine)
 ```
 
 #### Numerical Optimization
@@ -257,6 +267,7 @@ h.gaussian.2d
 
 ```{r}
 density.gaussian.2d <- make.gaussian.kernel.density.estimate(sphered.gaussian.2d, h.gaussian.2d)
+density.gaussian.2d(sphered.gaussian.2d)
 ```
 
 #### Numerical Optimization
