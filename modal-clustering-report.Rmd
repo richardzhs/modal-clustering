@@ -151,16 +151,21 @@ gradient <- make.kde.gradient(sphered.oil, h.oil)
 optimize.density(sphered.oil, density.oil, optim.out.pathname, gradient = gradient, echo = echo)
 ```
 
-Read optimization result. 0 means all points converge.
+Cluster tree:
+```{r}
+mdsmat <- gsl.mdsmat(sphered.oil, density.oil)
+```
+
 ```{r}
 optima.density <- c()
 for (i in 1:length(optim.out.list)) {
   optima.density <- c(optima.density, optim.out.list[[i]]$value)
 }
 optima.density[order(optima.density)]
+op
 ```
 
-
+Read optimization result. 0 means all points converge.
 ```{r}
 optima <- read.optim(sphered.oil, optim.out.pathname)
 ```
